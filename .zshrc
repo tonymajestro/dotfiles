@@ -23,6 +23,7 @@ if [ ! -d "$BAT_THEMES_DIR" ]; then
     bat cache --build
 fi
 
+# Initialize zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Zsh plugins
@@ -39,10 +40,10 @@ autoload -U compinit && compinit
 
 # Environment variables
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .git'
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}' --height 50%"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --strip-cwd-prefix --exclude .git'
-export FZF_CTRL_T_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export FZF_ALT_C_OPTS="--preview 'eza --group-directories-first --tree --color=always {} | head -200'"
 export BAT_THEME="Catppuccin Mocha"
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 export FZF_DEFAULT_OPTS=" \
@@ -51,8 +52,14 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # Aliases
-alias ls='eza --color=always --long --git --icons=always --no-permissions --no-user --no-time --no-filesize'
+alias ls='eza --color=always --long --git --icons=always --no-permissions --no-user --no-time --no-filesize --group-directories-first'
+alias lsa='eza --color=always --long --git --group-directories-first'
 alias cat='bat'
+alias tree='eza --tree --color=always --group-directories-first'
+alias vim='nvim'
+
+alias k='kubectl'
+alias mk='minikube'
 
 # Key bindings
 bindkey -e
@@ -100,11 +107,16 @@ _fzf_comprun() {
   shift
 
   case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200'   "$@" ;;
+    cd)           fzf --preview 'eza --tree --color=always --group-directories-first {} | head -200'  "$@" ;;
     export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
     *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
   esac
 }
 
+# Fzf git
 source ~/programs/fzf-git.sh/fzf-git.sh 
+
+# kubectl zsh completion
+source <(kubectl completion zsh)
+
