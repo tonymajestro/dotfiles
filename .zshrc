@@ -6,6 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.toolbox/bin:$PATH
 
 if [ ! -d "$ZINIT_HOME" ]; then
         mkdir -p "$(dirname $ZINIT_HOME)"
@@ -58,9 +61,6 @@ alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
 
-alias k='kubectl'
-alias mk='minikube'
-
 # Key bindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -96,7 +96,7 @@ _fzf_compgen_path() {
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --exclude ".git" . "$1"
+  fd --type d --hidden --exclude ".git" "$1"
 }
 
 # Advanced customization of fzf options via _fzf_comprun function
@@ -113,10 +113,3 @@ _fzf_comprun() {
     *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
   esac
 }
-
-# Fzf git
-source ~/programs/fzf-git.sh/fzf-git.sh 
-
-# kubectl zsh completion
-source <(kubectl completion zsh)
-

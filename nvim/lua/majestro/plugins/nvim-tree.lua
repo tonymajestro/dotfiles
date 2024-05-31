@@ -15,8 +15,9 @@ local function my_on_attach(bufnr)
   end
 
   -- custom mappings
-  vim.keymap.set("n", "c", collapse_directories(false), opts("Collapse All"))
-  vim.keymap.set("n", "C", collapse_directories(true), opts("Collapse All"))
+  vim.keymap.set("n", "C", collapse_directories(false), opts("Collapse All"))
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Edit"))
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close tree"))
 end
 
 return {
@@ -44,7 +45,9 @@ return {
         },
       },
       filters = {
+        dotfiles = true,
         custom = { 
+          "brazil-pkg-cache",
           ".DS_Store",
           ".git"
         },
