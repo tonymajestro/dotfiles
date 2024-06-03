@@ -1,5 +1,5 @@
 local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
+  local api = require("nvim-tree.api")
 
    local function opts(desc)
      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -31,8 +31,18 @@ return {
 
     nvimtree.setup({
       view = {
-        width = 35,
+        width = 50,
         relativenumber = true,
+      },
+      renderer = {
+        icons = {
+          glyphs = {
+            folder = {
+              arrow_closed = "", -- arrow when folder is closed
+              arrow_open = "", -- arrow when folder is open
+            },
+          },
+        },
       },
       -- disable window_picker for
       -- explorer to work well with
@@ -69,12 +79,18 @@ return {
       end
     })
 
-    -- Expand all subtrees
     local api = require("nvim-tree.api")
-      local Event = api.events.Event
-      api.events.subscribe(Event.TreeOpen, function()
-        api.tree.expand_all()
-      end)
+
+    -- Expand all subtrees
+    local Event = api.events.Event
+    api.events.subscribe(Event.TreeOpen, function()
+      api.tree.expand_all()
+    end)
+
+    -- Open file when it is created
+    api.events.subscribe(api.events.Event.FileCreated, function(file)
+      vim.cmd("edit " .. file.fname)
+    end)
 
     -- Keybindings
     local keymap = vim.keymap
