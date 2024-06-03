@@ -1,4 +1,6 @@
-NVIM_HOME=~/.config/nvim
+#!/bin/sh
+
+NVIM_HOME=~/.config/nvim/
 HOME=~/
 
 #! /bin/sh
@@ -17,7 +19,7 @@ cp .tmux.conf $HOME
 
 # Copy nvim
 mkdir -p $NVIM_HOME
-cp -r nvim $NVIM_HOME
+cp -r nvim/* $NVIM_HOME
 
 # Copy p10k config
 cp .p10k.zsh $HOME
