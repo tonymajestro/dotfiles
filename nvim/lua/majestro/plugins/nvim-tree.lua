@@ -18,6 +18,9 @@ local function my_on_attach(bufnr)
   vim.keymap.set("n", "C", collapse_directories(false), opts("Collapse All"))
   vim.keymap.set("n", "l", api.node.open.edit, opts("Edit"))
   vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close tree"))
+
+  -- Unset C-k since I use it for document scrolling
+  vim.keymap.del('n', '<C-k>', { buffer = bufnr })
 end
 
 return {
@@ -31,7 +34,7 @@ return {
 
     nvimtree.setup({
       view = {
-        width = 50,
+        width = 55,
         relativenumber = true,
       },
       renderer = {
@@ -82,10 +85,15 @@ return {
     local api = require("nvim-tree.api")
 
     -- Expand all subtrees
-    local Event = api.events.Event
-    api.events.subscribe(Event.TreeOpen, function()
-      api.tree.expand_all()
-    end)
+    local expand = function()
+      local Event = api.events.Event
+      api.events.subscribe(Event.TreeOpen, function()
+        api.tree.expand_all()
+      end)
+    end
+
+    -- Currently I am disabling expansion of all subtrees in nvim
+    -- expand()
 
     -- Open file when it is created
     api.events.subscribe(api.events.Event.FileCreated, function(file)
