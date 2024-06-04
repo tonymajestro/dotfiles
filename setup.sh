@@ -2,13 +2,16 @@
 
 NVIM_HOME=~/.config/nvim
 
-#! /bin/sh
-brew install fzf
-brew install fd
-brew install wget
-brew install zoxide
-brew install tlrc
-brew install tmux
+# Install programs if -i or --install is passed
+if [[ $1 =~ ^(-i|--install) ]]
+then
+  brew install fzf
+  brew install fd
+  brew install wget
+  brew install zoxide
+  brew install tlrc
+  brew install tmux
+fi
 
 # Copy zshrc
 cp .zshrc $HOME
