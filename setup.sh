@@ -1,7 +1,6 @@
-#!/bin/sh
+#/bin/sh
 
-NVIM_HOME=~/.config/nvim/
-HOME=~/
+NVIM_HOME=~/.config/nvim
 
 #! /bin/sh
 brew install fzf
@@ -17,9 +16,9 @@ cp .zshrc $HOME
 # Copy tmux config
 cp .tmux.conf $HOME
 
+# Copy p10k config
+cp .p10k.zsh $HOME
+
 # Copy nvim
 mkdir -p $NVIM_HOME
 cp -r nvim/* $NVIM_HOME
-
-# Copy p10k config
-cp .p10k.zsh $HOME
