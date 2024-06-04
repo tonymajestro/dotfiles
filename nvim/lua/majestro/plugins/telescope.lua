@@ -9,9 +9,13 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local builtin = require("telescope.builtin")
 
     telescope.setup({
       defaults = {
+        path_display = {
+          "smart"
+        },
         layout_config = { 
           width = 0.9
         },
@@ -39,7 +43,8 @@ return {
 
     keymap.set("n", "<leader>fo", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find recent files" })
+    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find recent files" })
+    keymap.set('n', '<leader>fh', builtin.help_tags, {})
   end
 }
 
