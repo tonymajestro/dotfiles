@@ -34,7 +34,7 @@ return {
 
     nvimtree.setup({
       view = {
-        width = 55,
+        width = "30%",
         relativenumber = true,
       },
       renderer = {
@@ -72,14 +72,57 @@ return {
     })
 
     -- Close nvim if NvimTree is the only buffer open
-    -- Taken from https://github.com/nvim-tree/nvim-tree.lua/issues/1368
-    vim.api.nvim_create_autocmd("BufEnter", {
-      group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
-      pattern = "NvimTree_*",
-      callback = function()
-        local layout = vim.api.nvim_call_function("winlayout", {})
-        if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("confirm quit") end
+    -- Taken from https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#make-q-and-bd-work-as-if-tree-was-not-visible
+    vim.api.nvim_create_autocmd({'BufEnter', 'QuitPre'}, {
+      nested = false,
+      callback = function(e)
+        local tree = require('nvim-tree.api').tree
+
+        -- Nothing to do if tree is not opened
+        if not tree.is_visible() then
+          return
+        end
+
+        -- How many focusable windows do we have? (excluding e.g. incline status window)
+        local winCount = 0
+        for _,winId in ipairs(vim.api.nvim_list_wins()) do
+          if vim.api.nvim_win_get_config(winId).focusable then
+            winCount = winCount + 1
+          end
+        end
+
+        -- We want to quit and only one window besides tree is left
+        if e.event == 'QuitPre' and winCount == 2 then
+          vim.api.nvim_cmd({cmd = 'qall'}, {})
+
+        end
+
+        -- :bd was probably issued an only tree window is left
+        -- Behave as if tree was closed (see `:h :bd`)
+        if e.event == 'BufEnter' and winCount == 1 then
+          -- Required to avoid "Vim:E444: Cannot close last window"
+          vim.defer_fn(function()
+            -- close nvim-tree: will go to the last buffer used before closing
+            tree.toggle({find_file = true, focus = true})
+            -- re-open nivm-tree
+            tree.toggle({find_file = true, focus = false})
+          end, 10)
+        end
       end
+    })
+
+    -- Autosession workaround
+    -- Taken from https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
+    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+      pattern = 'NvimTree*',
+      callback = function()
+        local api = require('nvim-tree.api')
+        local view = require('nvim-tree.view')
+
+        if not view.is_visible() then
+          api.tree.open()
+        end
+      end,
     })
 
     local api = require("nvim-tree.api")

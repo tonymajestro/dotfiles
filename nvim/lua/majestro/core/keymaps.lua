@@ -28,6 +28,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- Buffer management
 keymap.set("n", "<leader>bj", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "Go to next buffer" })
 keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "Go to next buffer" })
+keymap.set("n", "<leader>bl", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true, desc = "Go to next buffer" })
 keymap.set("n", "<leader>bk", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Go to prev buffer" })
 keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Go to prev buffer" })
+keymap.set("n", "<leader>bh", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Go to prev buffer" })
 keymap.set("n", "<leader>bd", "<cmd>Bdelete<CR>", { noremap = true, silent = true, desc = "Delete current buffer" })
