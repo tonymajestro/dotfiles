@@ -59,7 +59,7 @@ return {
       },
       filters = {
         dotfiles = true,
-        custom = { 
+        custom = {
           "brazil-pkg-cache",
           ".DS_Store",
           ".git"

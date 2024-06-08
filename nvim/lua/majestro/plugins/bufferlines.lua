@@ -10,7 +10,7 @@ return {
         {
           filetype = "NvimTree",
           highlight = "Directory",
-          text="nvim-tree",
+          text="NvimTree",
           separator= true,
         }
       },

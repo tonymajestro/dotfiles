@@ -9,18 +9,24 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local layout = require("telescope.actions.layout")
     local builtin = require("telescope.builtin")
 
     telescope.setup({
       defaults = {
+        preview = {
+          hide_on_startup = true
+        },
         path_display = {
           "smart"
         },
-        layout_config = { 
-          width = 0.9
+        layout_config = {
+          width = 0.8
         },
         mappings = {
           i = {
+            ["<esc>"] = actions.close, -- close Telescope window with escape
+            ['<C-p>'] = layout.toggle_preview, -- toggle preview
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
@@ -32,6 +38,7 @@ return {
           theme = "dropdown"
         },
         buffers = {
+          sort_lastused = true,
           theme = "dropdown"
         }
       },
@@ -43,8 +50,8 @@ return {
 
     keymap.set("n", "<leader>fo", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set('n', '<leader>fh', builtin.help_tags, {})
+    keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find open buffers" })
+    keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Fuzzy find in help tags"})
   end
 }
 
