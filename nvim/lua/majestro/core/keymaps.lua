@@ -33,3 +33,4 @@ keymap.set("n", "<leader>bk", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, 
 keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Go to prev buffer" })
 keymap.set("n", "<leader>bh", "<cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true, desc = "Go to prev buffer" })
 keymap.set("n", "<leader>bd", "<cmd>Bdelete<CR>", { noremap = true, silent = true, desc = "Delete current buffer" })
+keymap.set("n", "<leader>bb", "<cmd>b#<CR>", { noremap = true, silent = true, desc = "Go to previously open buffer" })

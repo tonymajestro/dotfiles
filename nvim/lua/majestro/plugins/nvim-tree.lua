@@ -84,6 +84,10 @@ return {
     vim.api.nvim_create_autocmd({'BufEnter', 'QuitPre'}, {
       nested = false,
       callback = function(e)
+        if e.event == 'QuitPre' then
+          require("auto-session").SaveSession()
+        end
+
         local tree = require('nvim-tree.api').tree
 
         -- Nothing to do if tree is not opened
@@ -102,7 +106,6 @@ return {
         -- We want to quit and only one window besides tree is left
         if e.event == 'QuitPre' and winCount == 2 then
           vim.api.nvim_cmd({cmd = 'qall'}, {})
-
         end
 
         -- :bd was probably issued an only tree window is left
@@ -134,17 +137,6 @@ return {
     })
 
     local api = require("nvim-tree.api")
-
-    -- Expand all subtrees
-    local expand = function()
-      local Event = api.events.Event
-      api.events.subscribe(Event.TreeOpen, function()
-        api.tree.expand_all()
-      end)
-    end
-
-    -- Currently I am disabling expansion of all subtrees in nvim
-    -- expand()
 
     -- Open file when it is created
     api.events.subscribe(api.events.Event.FileCreated, function(file)
