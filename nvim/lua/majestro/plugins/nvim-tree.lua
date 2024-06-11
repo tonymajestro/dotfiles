@@ -21,6 +21,14 @@ local function my_on_attach(bufnr)
 
   -- Unset C-k since I use it for document scrolling
   vim.keymap.del('n', '<C-k>', { buffer = bufnr })
+
+  vim.keymap.set('n', '<LeftRelease>', function()
+		local node = api.tree.get_node_under_cursor()
+
+		if node.nodes ~= nil then
+			api.node.open.edit()
+		end
+	end, {})
 end
 
 return {
