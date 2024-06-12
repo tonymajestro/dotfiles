@@ -1,2 +1,2 @@
 nvim/lazy-lock.json
-nvim/lua/majestro/dev/keymaps.lua
+nvim/.config/nvim/lua/majestro/dev/keymaps.lua
