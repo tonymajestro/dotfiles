@@ -19,7 +19,6 @@ return {
       ensure_installed = {
         "cssls",
         "html",
-        "jdtls",
         "lua_ls",
         "pyright",
         "tailwindcss",
