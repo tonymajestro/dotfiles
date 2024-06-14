@@ -14,6 +14,9 @@ return {
 
     telescope.setup({
       defaults = {
+        layout_strategy = 'center',
+
+        sorting_strategy='ascending',
         preview = {
           hide_on_startup = true
         },
@@ -21,7 +24,11 @@ return {
           "smart"
         },
         layout_config = {
-          width = 0.8
+          width = 0.8,
+          height = 0.8,
+          center = {
+            preview_cutoff = 0,
+          },
         },
         mappings = {
           i = {
@@ -35,12 +42,15 @@ return {
       },
       pickers = {
         find_files = {
-          theme = "dropdown"
+          --theme = "dropdown"
         },
         buffers = {
           sort_lastused = true,
-          theme = "dropdown"
-        }
+          --theme = "dropdown"
+        },
+        git_status = {
+          --theme = "dropdown"
+        },
       },
     })
 
@@ -51,6 +61,7 @@ return {
     keymap.set("n", "<leader>fo", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy find open buffers" })
+    keymap.set("n", "<leader>fg", "<cmd>Telescope git_status<cr>", { desc = "Fuzzy find open buffers" })
     keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Fuzzy find in help tags"})
   end
 }

@@ -1,5 +1,6 @@
 local function my_on_attach(bufnr)
   local api = require("nvim-tree.api")
+  local keymap = vim.keymap
 
    local function opts(desc)
      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -14,13 +15,15 @@ local function my_on_attach(bufnr)
     end
   end
 
-  -- custom mappings
-  vim.keymap.set("n", "C", collapse_directories(false), opts("Collapse All"))
-  vim.keymap.set("n", "l", api.node.open.edit, opts("Edit"))
-  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close tree"))
-
   -- Unset C-k since I use it for document scrolling
-  vim.keymap.del('n', '<C-k>', { buffer = bufnr })
+  keymap.del('n', '<C-k>', { buffer = bufnr })
+
+  -- custom mappings
+  keymap.set("n", "C", collapse_directories(false), opts("Collapse All"))
+  keymap.set("n", "l", api.node.open.edit, opts("Edit"))
+  keymap.set("n", "h", api.node.navigate.parent_close, opts("Close tree"))
+  keymap.set("n", "<Esc>", "<cmd>NvimTreeClose<CR>")
+
 
   vim.keymap.set('n', '<LeftRelease>', function()
 		local node = api.tree.get_node_under_cursor()
@@ -40,10 +43,42 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
+    local HEIGHT_RATIO = 0.8
+    local WIDTH_RATIO = 0.7
+
+
     nvimtree.setup({
+      disable_netrw = true,
+      hijack_netrw = true,
+      respect_buf_cwd = true,
+      sync_root_with_cwd = true,
       view = {
-        width = "30%",
         relativenumber = true,
+        float = {
+          enable = true,
+          open_win_config = function()
+            local screen_w = vim.opt.columns:get()
+            local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+            local window_w = screen_w * WIDTH_RATIO
+            local window_h = screen_h * HEIGHT_RATIO
+            local window_w_int = math.floor(window_w)
+            local window_h_int = math.floor(window_h)
+            local center_x = (screen_w - window_w) / 2
+            local center_y = ((vim.opt.lines:get() - window_h) / 2)
+                             - vim.opt.cmdheight:get()
+            return {
+              border = "rounded",
+              relative = "editor",
+              row = center_y,
+              col = center_x,
+              width = window_w_int,
+              height = window_h_int,
+            }
+            end,
+        },
+        width = function()
+          return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+        end,
       },
       renderer = {
         icons = {
@@ -127,7 +162,7 @@ return {
 
     -- Keybindings
     local keymap = vim.keymap
-    keymap.set("n", "<leader>ee", "<cmd>NvimTreeFindFile<CR>")
+    keymap.set("n", "<leader>ee", "<cmd>NvimTreeFindFile<CR>zz")
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeClose<CR>")
 
   end
