@@ -84,10 +84,6 @@ return {
     vim.api.nvim_create_autocmd({'BufEnter', 'QuitPre'}, {
       nested = false,
       callback = function(e)
-        if e.event == 'QuitPre' then
-          require("auto-session").SaveSession()
-        end
-
         local tree = require('nvim-tree.api').tree
 
         -- Nothing to do if tree is not opened
@@ -120,20 +116,6 @@ return {
           end, 10)
         end
       end
-    })
-
-    -- Autosession workaround
-    -- Taken from https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
-    vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-      pattern = 'NvimTree*',
-      callback = function()
-        local api = require('nvim-tree.api')
-        local view = require('nvim-tree.view')
-
-        if not view.is_visible() then
-          api.tree.open()
-        end
-      end,
     })
 
     local api = require("nvim-tree.api")
