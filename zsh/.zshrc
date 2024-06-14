@@ -9,6 +9,7 @@ fi
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=~/programs/bin:$PATH
 
 if [ ! -d "$ZINIT_HOME" ]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
