@@ -27,8 +27,7 @@ local function my_on_attach(bufnr)
 
   vim.keymap.set('n', '<LeftRelease>', function()
 		local node = api.tree.get_node_under_cursor()
-
-		if node.nodes ~= nil then
+		if node ~= nil and node.nodes ~= nil then
 			api.node.open.edit()
 		end
 	end, {})
