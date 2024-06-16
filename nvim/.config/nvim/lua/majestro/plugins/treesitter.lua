@@ -49,15 +49,6 @@ return {
         "vimdoc",
         "c",
       },
-      incremental_selection = {
-        enable = false,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
     })
   end
 }

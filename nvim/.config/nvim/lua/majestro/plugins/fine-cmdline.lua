@@ -20,8 +20,12 @@ return {
     -- Config
     fine_cmdline.setup({
       popup = {
+        position = {
+          row = '100%',
+          col = '50%',
+        },
         size = {
-          width = "40%"
+          width = "30%"
         }
       }
     })
