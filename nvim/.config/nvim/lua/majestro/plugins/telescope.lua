@@ -15,8 +15,8 @@ return {
     telescope.setup({
       defaults = {
         layout_strategy = 'center',
-
         sorting_strategy='ascending',
+        results_title = false,
         preview = {
           --hide_on_startup = true
         },
