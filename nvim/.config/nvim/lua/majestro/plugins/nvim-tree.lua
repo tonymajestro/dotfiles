@@ -35,7 +35,6 @@ end
 
 return {
   "nvim-tree/nvim-tree.lua",
-  dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local nvimtree = require("nvim-tree")
 
@@ -52,7 +51,6 @@ return {
       respect_buf_cwd = true,
       sync_root_with_cwd = true,
       view = {
-        relativenumber = true,
         float = {
           enable = true,
           open_win_config = function()
@@ -81,12 +79,12 @@ return {
       },
       renderer = {
         icons = {
-          glyphs = {
-            folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
-            },
-          },
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = false,
+            git = false
+          }
         },
       },
       -- disable window_picker for
@@ -163,6 +161,5 @@ return {
     local keymap = vim.keymap
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeFindFile<CR>zz")
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeClose<CR>")
-
   end
 }

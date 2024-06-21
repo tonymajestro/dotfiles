@@ -18,17 +18,14 @@ return {
 
         sorting_strategy='ascending',
         preview = {
-          hide_on_startup = true
+          --hide_on_startup = true
         },
         path_display = {
           "smart"
         },
         layout_config = {
-          width = 0.8,
+          width = 0.75,
           height = 0.8,
-          center = {
-            preview_cutoff = 0,
-          },
         },
         mappings = {
           i = {
@@ -42,14 +39,10 @@ return {
       },
       pickers = {
         find_files = {
-          --theme = "dropdown"
+          disable_devicons = true
         },
         buffers = {
           sort_lastused = true,
-          --theme = "dropdown"
-        },
-        git_status = {
-          --theme = "dropdown"
         },
       },
     })
