@@ -58,7 +58,7 @@ export FZF_DEFAULT_OPTS=" \
 
 # Aliases
 alias ls='eza --color=always --long --icons=always --no-permissions --no-user --no-time --no-filesize --group-directories-first'
-alias lsa='eza --color=always --long --all --group-directories-first'
+alias lsa='eza --color=always'
 alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
