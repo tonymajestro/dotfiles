@@ -24,8 +24,8 @@ return {
           "smart"
         },
         layout_config = {
-          width = 0.75,
-          height = 0.8,
+          width = 0.6,
+          height = 0.6,
         },
         mappings = {
           i = {
@@ -39,11 +39,19 @@ return {
       },
       pickers = {
         find_files = {
-          disable_devicons = true
+          disable_devicons = true,
         },
         buffers = {
           sort_lastused = true,
         },
+        live_grep = {
+          layout_config = {
+            width = 0.99,
+            height = 0.99
+          },
+          layout_strategy = 'horizontal',
+          sorting_strategy='descending',
+        }
       },
     })
 

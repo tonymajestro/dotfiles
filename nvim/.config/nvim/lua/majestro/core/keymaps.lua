@@ -4,16 +4,16 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- Cursor movement
-keymap.set("n", "<C-j>", "4<C-d>", { desc = "Move cursor down 4 lines in normal mode" })
-keymap.set("n", "<C-k>", "4<C-u>", { desc = "Move cursor up 4 lines in normal mode" })
-keymap.set("v", "<C-j>", "4<C-d>", { desc = "Move cursor up 4 lines in visual mode" })
-keymap.set("v", "<C-k>", "4<C-u>", { desc = "Move cursor up 4 lines in visual mode" })
+keymap.set("n", "<C-j>", "2<C-d>zz", { desc = "Move cursor down 4 lines in normal mode" })
+keymap.set("n", "<C-k>", "2<C-u>zz", { desc = "Move cursor up 4 lines in normal mode" })
+keymap.set("v", "<C-j>", "2<C-d>zz", { desc = "Move cursor up 4 lines in visual mode" })
+keymap.set("v", "<C-k>", "2<C-u>zz", { desc = "Move cursor up 4 lines in visual mode" })
 
 -- Clear search results
-keymap.set("n", "<leader>L", ":noh<cr>", { desc = "Clear search results" })
+keymap.set('n', '<Esc>', '<cmd>noh<cr>')
 
 -- Window management
-keymap.set("n", "<leader>s|", "<C-w>v", { desc = "Split window vertically" })
+keymap.set("n", "<leader>s|", "<C-w>v", { desc = "plit window vertically" })
 keymap.set("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal sizes" })
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
