@@ -114,6 +114,7 @@ return {
   config = function(_, opts)
     require('nvim-tree').setup(opts)
 
+    -- Disable netrw
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 

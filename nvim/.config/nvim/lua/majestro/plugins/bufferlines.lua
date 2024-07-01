@@ -1,20 +1,16 @@
 return {
-  "akinsho/bufferline.nvim",
+  'akinsho/bufferline.nvim',
   dependencies = {
-    "nvim-tree/nvim-web-devicons"
+    'nvim-tree/nvim-web-devicons'
   },
-  version = "*",
-  opts = {
-    options = {
-      separator_style = "slant",
-    },
-  },
-  config = function(_, opts)
+  version = '*',
+  config = function()
     local bufferline = require('bufferline')
-    opts.options.style_preset = {
-      bufferline.style_preset.no_italic,
-      bufferline.style_preset.no_bold,
-    }
-    bufferline.setup(opts)
+    bufferline.setup({
+      options = {
+        separator_style = 'slant',
+        style_preset = bufferline.style_preset.no_italic
+      },
+    })
   end
 }

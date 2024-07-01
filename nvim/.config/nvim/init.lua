@@ -1,3 +1,3 @@
-require("majestro.core")
-require("majestro.dev")
-require("majestro.lazy")
+require('majestro.core')
+require('majestro.dev')
+require('majestro.lazy')

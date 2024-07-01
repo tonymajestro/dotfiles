@@ -1,1 +1,1 @@
-require("majestro.dev.keymaps")
+require('majestro.dev.keymaps')

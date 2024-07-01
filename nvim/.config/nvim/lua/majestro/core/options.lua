@@ -1,4 +1,4 @@
-vim.cmd("let g:netrw_liststyle = 3")
+vim.cmd('let g:netrw_liststyle = 3')
 vim.g.tmux_navigator_disable_netrw_workaround = 1
 
 local opt = vim.opt
@@ -21,14 +21,14 @@ opt.smartcase = true
 
 -- term settings
 opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
+opt.background = 'dark'
+opt.signcolumn = 'yes'
 
 -- backspace
-opt.backspace = "indent,eol,start"
+opt.backspace = 'indent,eol,start'
 
 -- use system clipboard 
-opt.clipboard:append("unnamedplus")
+opt.clipboard:append('unnamedplus')
 
 -- split windows
 opt.splitright = true

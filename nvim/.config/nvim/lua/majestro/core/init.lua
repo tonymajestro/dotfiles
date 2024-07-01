@@ -1,2 +1,2 @@
-require("majestro.core.options")
-require("majestro.core.keymaps")
+require('majestro.core.options')
+require('majestro.core.keymaps')
