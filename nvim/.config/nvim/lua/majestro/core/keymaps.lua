@@ -10,7 +10,7 @@ keymap.set("v", "<C-j>", "2<C-d>zz", { desc = "Move cursor up 4 lines in visual 
 keymap.set("v", "<C-k>", "2<C-u>zz", { desc = "Move cursor up 4 lines in visual mode" })
 
 -- Clear search results
-keymap.set('n', '<Esc>', '<cmd>noh<cr>')
+keymap.set('n', '<leader>L', '<cmd>noh<cr>')
 
 -- Window management
 keymap.set("n", "<leader>s|", "<C-w>v", { desc = "plit window vertically" })
