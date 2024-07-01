@@ -4,13 +4,10 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 -- Cursor movement
-keymap.set("n", "<C-j>", "2<C-d>zz", { desc = "Move cursor down 4 lines in normal mode" })
-keymap.set("n", "<C-k>", "2<C-u>zz", { desc = "Move cursor up 4 lines in normal mode" })
-keymap.set("v", "<C-j>", "2<C-d>zz", { desc = "Move cursor up 4 lines in visual mode" })
-keymap.set("v", "<C-k>", "2<C-u>zz", { desc = "Move cursor up 4 lines in visual mode" })
-
--- Clear search results
-keymap.set('n', '<leader>L', '<cmd>noh<cr>')
+keymap.set("n", "<C-j>", "2<C-d>", { desc = "Move cursor down 4 lines in normal mode" })
+keymap.set("n", "<C-k>", "2<C-u>", { desc = "Move cursor up 4 lines in normal mode" })
+keymap.set("v", "<C-j>", "2<C-d>", { desc = "Move cursor up 4 lines in visual mode" })
+keymap.set("v", "<C-k>", "2<C-u>", { desc = "Move cursor up 4 lines in visual mode" })
 
 -- Window management
 keymap.set("n", "<leader>s|", "<C-w>v", { desc = "plit window vertically" })
