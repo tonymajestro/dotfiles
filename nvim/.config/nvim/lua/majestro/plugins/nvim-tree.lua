@@ -19,7 +19,12 @@ local function my_on_attach(bufnr)
   keymap.del('n', '<C-k>', { buffer = bufnr })
 
   -- custom mappings
-  keymap.set('n', 'C', collapse_directories(false), opts('Collapse All'))
+  --keymap.set('n', 'C', collapse_directories(false), opts('Collapse All'))
+  keymap.set('n', 'C', function()
+      api.tree.collapse_all(false)
+  end, opts('Collapse All'))
+
+
   keymap.set('n', 'l', api.node.open.edit, opts('Edit'))
   keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close tree'))
 
@@ -64,55 +69,54 @@ end
 
 return {
   'nvim-tree/nvim-tree.lua',
-  opts = {
-    disable_netrw = true,
-    hijack_netrw = true,
-    respect_buf_cwd = true,
-    sync_root_with_cwd = true,
-    view = {
-      float = {
-        enable = true,
-        open_win_config = floating_window
+  config = function()
+    require('nvim-tree').setup({
+      disable_netrw = true,
+      hijack_netrw = true,
+      respect_buf_cwd = true,
+      sync_root_with_cwd = true,
+      view = {
+        float = {
+          enable = true,
+          open_win_config = floating_window
+        },
+        width = function()
+          return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+        end,
       },
-      width = function()
-        return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-      end,
-    },
-    renderer = {
-      icons = {
-        show = {
-          file = true,
-          folder = true,
-          folder_arrow = false,
-          git = false
-        }
-      },
-    },
-    -- disable window_picker for
-    -- explorer to work well with
-    -- window splits
-    actions = {
-      open_file = {
-        window_picker = {
-          enable = false,
+      renderer = {
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = false,
+            git = false
+          }
         },
       },
-    },
-    filters = {
-      dotfiles = true,
-      custom = {
-        'brazil-pkg-cache',
-        '.DS_Store',
-        '.git'
+      -- disable window_picker for
+      -- explorer to work well with
+      -- window splits
+      actions = {
+        open_file = {
+          window_picker = {
+            enable = false,
+          },
+        },
       },
-    },
-    on_attach = my_on_attach,
-    update_focused_file = {
-      enable = true
-    },
-  },
-  config = function(_, opts)
-    require('nvim-tree').setup(opts)
+      filters = {
+        dotfiles = true,
+        custom = {
+          'brazil-pkg-cache',
+          '.DS_Store',
+          '.git'
+        },
+      },
+      on_attach = my_on_attach,
+      update_focused_file = {
+        enable = true
+      }
+    })
 
     -- Disable netrw
     vim.g.loaded_netrw = 1
@@ -123,6 +127,25 @@ return {
     api.events.subscribe(api.events.Event.FileCreated, function(file)
       vim.cmd('edit ' .. file.fname)
     end)
+
+  vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+    callback = function()
+      local buffers = vim.fn.getbufinfo({ buflisted = 1, bufloaded = 1 })
+      local buf_count = 0
+
+      -- Look for all non-hidden buffers
+      for _, buf in ipairs(buffers) do
+        if buf.name ~= '' and buf.hidden == 0 then
+          buf_count = buf_count + 1
+        end
+      end
+
+      -- Open NvimTree if there are no open buffers
+      if buf_count == 0 then
+        vim.cmd('NvimTreeFindFile')
+      end
+    end
+})
   end,
   keys = {
     { '<leader>ee', '<cmd>NvimTreeFindFile<CR>zz', mode = 'n', desc = 'NvimTree Open' },

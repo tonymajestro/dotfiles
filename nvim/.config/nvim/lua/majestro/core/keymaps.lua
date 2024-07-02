@@ -28,3 +28,9 @@ keymap.set('n', '<C-l>', '<cmd>BufferLineCycleNext<CR>', { noremap = true, silen
 keymap.set('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true, desc = 'Go to previous buffer' })
 keymap.set('n', '<leader>bd', '<cmd>Bdelete<CR>', { noremap = true, silent = true, desc = 'Delete current buffer' })
 keymap.set('n', '<leader>bb', '<cmd>b#<CR>', { noremap = true, silent = true, desc = 'Go to previously open buffer' })
+
+-- Help commands
+keymap.set('n', 'H', function()
+  local help_term = vim.fn.expand("<cword>")
+  vim.cmd.help(help_term)
+  end, { noremap = true, silent = true, desc = 'Go to next buffer' })
