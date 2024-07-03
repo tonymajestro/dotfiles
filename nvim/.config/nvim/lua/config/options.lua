@@ -2,21 +2,23 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
-vim.opt.number = true
-vim.opt.relativenumber = true
+local opt = vim.opt
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.number = true
+opt.relativenumber = true
 
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
-vim.opt.signcolumn = "yes"
+opt.ignorecase = true
+opt.smartcase = true
 
-vim.opt.backspace = "indent,eol,start"
+opt.background = "dark"
+opt.signcolumn = "yes"
+opt.pumblend = 0
+
+opt.backspace = "indent,eol,start"
 
 -- use system clipboard
-vim.opt.clipboard:append("unnamedplus")
+opt.clipboard:append("unnamedplus")
 
 -- split windows
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.splitright = true
+opt.splitbelow = true
