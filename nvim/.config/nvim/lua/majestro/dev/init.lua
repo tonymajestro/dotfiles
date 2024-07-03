@@ -1,1 +1,0 @@
-require('majestro.dev.keymaps')
