@@ -62,6 +62,7 @@ alias lsa='eza --color=always'
 alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
+alias lg='lazygit'
 
 alias k='kubectl'
 alias mk='minikube'
