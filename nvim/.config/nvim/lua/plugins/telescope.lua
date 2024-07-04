@@ -8,13 +8,4 @@ return {
       ["<C-j>"] = actions.move_selection_next, -- move to next result
     })
   end,
-  keys = {
-    {
-      "<leader>fh",
-      function()
-        require("telescope.builtin").help_tags()
-      end,
-      { desc = "Fuzzy find help tags" },
-    },
-  },
 }

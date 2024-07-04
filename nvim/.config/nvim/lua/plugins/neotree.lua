@@ -3,18 +3,30 @@ return {
   keys = {
     {
       "<leader>e",
-      "<cmd>Neotree filesystem reveal float<cr>",
+      "<cmd>Neotree filesystem reveal<cr>",
       desc = "Explore NeoTree (Root Dir)",
     },
   },
   opts = {
     close_if_last_window = true,
     window = {
+      width = "50%",
       popup = {
         size = {
           width = "70%",
           height = "80%",
         },
+      },
+      mappings = {
+        ["<Esc>"] = "close_window",
+      },
+    },
+    event_handlers = {
+      {
+        event = "file_open_requested",
+        handler = function()
+          require("neo-tree.command").execute({ action = "close" })
+        end,
       },
     },
     renderers = {
