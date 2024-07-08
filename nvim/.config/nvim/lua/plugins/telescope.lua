@@ -8,4 +8,7 @@ return {
       ["<C-j>"] = actions.move_selection_next, -- move to next result
     })
   end,
+  keys = {
+    { "<leader>fg", "<cmd>Telescope git_status<CR>", desc = "Telescope git status" },
+  },
 }
