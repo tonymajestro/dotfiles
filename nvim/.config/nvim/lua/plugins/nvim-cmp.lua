@@ -1,12 +1,19 @@
 return {
   "hrsh7th/nvim-cmp",
-  opts = function(_, opts)
+  opts = function()
     local cmp = require("cmp")
-    opts.sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "path" },
-      { name = "buffer" },
-    })
+    return {
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
+        { name = "buffer" },
+      }),
+      mapping = cmp.mapping.preset.insert({
+        ["<C-k>"] = cmp.mapping.select_prev_item(),
+        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      }),
+    }
   end,
 }

@@ -10,7 +10,7 @@ return {
   opts = {
     close_if_last_window = true,
     window = {
-      width = "50%",
+      width = "30%",
       popup = {
         size = {
           width = "70%",
