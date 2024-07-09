@@ -64,5 +64,8 @@ return {
         expander_expanded = "",
       },
     },
+    filesystem = {
+      group_empty_dirs = true,
+    },
   },
 }
