@@ -4,10 +4,6 @@ return {
     enabled = false,
   },
   {
-    "folke/noice.nvim",
-    enabled = true,
-  },
-  {
     "ggandor/leap.nvim",
     enabled = false,
   },
