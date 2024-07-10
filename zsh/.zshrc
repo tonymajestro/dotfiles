@@ -44,17 +44,17 @@ autoload -U compinit && compinit
 POWERLEVEL9K_DISABLE_GITSTATUS=true
 
 # Environment variables
-export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git --exclude brazil-pkg-cache --exclude .cache --exclude WorkDocsDownloads --exclude Downloads'
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .git'
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}' --height 50%"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --strip-cwd-prefix --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'eza --group-directories-first --tree --color=always {} | head -200'"
 export BAT_THEME="Catppuccin Mocha"
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+ export FZF_DEFAULT_OPTS=" \
+ --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#a6e3a1 \
+ --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+ --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1"
 
 # Aliases
 alias ls='eza --color=always --long --icons=always --no-permissions --no-user --no-time --no-filesize --group-directories-first'
