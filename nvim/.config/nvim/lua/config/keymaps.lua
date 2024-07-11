@@ -17,3 +17,6 @@ map("n", "<leader>h", function()
   local help_term = vim.fn.expand("<cword>")
   vim.cmd.help(help_term)
 end, { noremap = true, silent = true, desc = "go to next buffer" })
+
+-- Map tab to escape
+vim.api.nvim_set_keymap("i", "kj", "<Esc>", {})
