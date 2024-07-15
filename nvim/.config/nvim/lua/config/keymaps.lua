@@ -20,3 +20,7 @@ end, { noremap = true, silent = true, desc = "go to next buffer" })
 
 -- Map tab to escape
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", {})
+
+-- Don't remain in visual mremainode when shifting text
+map("v", ">", ">", {})
+map("v", "<", "<", {})
