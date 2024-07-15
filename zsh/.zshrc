@@ -57,8 +57,9 @@ export LS_COLORS="$(vivid generate catppuccin-mocha)"
  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1"
 
 # Aliases
-alias ls='eza --color=always --long --icons=always --no-permissions --no-user --no-time --no-filesize --group-directories-first'
-alias lsa='eza --color=always'
+#alias ls='eza --color=always --long --icons=always --no-permissions --no-user --no-time --no-filesize --group-directories-first'
+alias ls='ls --color'
+#alias lsa='eza --color=always'
 alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
