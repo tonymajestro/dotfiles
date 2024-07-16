@@ -18,7 +18,7 @@ return {
             ["<C-p>"] = layout.toggle_preview,
           },
         },
-        path_display = { "smart " },
+        path_display = { "smart" },
       },
     }
   end,
