@@ -6,25 +6,26 @@ return {
         {
           action = "lua LazyVim.pick()()",
           desc = " Find File",
-          icon = " ",
           key = "f",
         },
         {
           action = "ene | startinsert",
           desc = " New File",
-          icon = " ",
           key = "n",
+        },
+        {
+          action = "Neotree",
+          desc = " File Explorer",
+          key = "e",
         },
         {
           action = 'lua require("persistence").load()',
           desc = " Restore Session",
-          icon = " ",
           key = "s",
         },
         {
           action = "Lazy",
           desc = " Lazy",
-          icon = "󰒲 ",
           key = "l",
         },
         {
@@ -32,10 +33,25 @@ return {
             vim.api.nvim_input("<cmd>qa<cr>")
           end,
           desc = " Quit",
-          icon = " ",
           key = "q",
         },
       },
+      header = {
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Neovim",
+        "",
+        "",
+      },
+      footer = {},
     },
   },
 }
