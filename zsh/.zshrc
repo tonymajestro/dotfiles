@@ -7,9 +7,11 @@ fi
 
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=~/programs/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="~/programs/bin:$PATH"
+
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 if [ ! -d "$ZINIT_HOME" ]; then
   mkdir -p "$(dirname $ZINIT_HOME)"
@@ -37,6 +39,9 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light chrissicool/zsh-256color
 
+autoload -U select-word-style
+select-word-style bash
+
 autoload -U compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -57,8 +62,7 @@ export LS_COLORS="$(vivid generate catppuccin-mocha)"
  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1"
 
 # Aliases
-#alias ls='eza --color=always --long --icons=always --no-permissions --no-user --no-time --no-filesize --group-directories-first'
-alias ls='ls --color'
+alias ls='eza --color=always --icons=always --group-directories-first --oneline'
 #alias lsa='eza --color=always'
 alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
