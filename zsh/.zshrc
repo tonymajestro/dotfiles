@@ -68,6 +68,7 @@ alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
 alias lg='lazygit'
+alias lf='lfcd'
 
 alias k='kubectl'
 alias mk='minikube'
@@ -124,5 +125,12 @@ _fzf_comprun() {
     *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
   esac
 }
+
+lfcd () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
+bindkey -s '^o' 'lfcd\n'
 
 source ~/.dev.zshrc
