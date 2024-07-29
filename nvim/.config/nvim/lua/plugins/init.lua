@@ -6,6 +6,7 @@ return {
     },
   },
   "tpope/vim-repeat",
+  "tpope/vim-fugitive",
   {
     "akinsho/bufferline.nvim",
     opts = {
