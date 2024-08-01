@@ -1,11 +1,11 @@
-eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="~/programs/bin:$PATH"
 
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # Setup bat themes
 BAT_THEMES_DIR="$(bat --config-dir)/themes"
@@ -18,12 +18,6 @@ if [ ! -d "$BAT_THEMES_DIR" ]; then
   bat cache --build
 fi
 
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
-# zinit light zsh-users/zsh-syntax-highlighting
-# zinit light zsh-users/zsh-completions
-# zinit light zsh-users/zsh-autosuggestions
-# zinit light chrissicool/zsh-256color
-
 autoload -U select-word-style
 select-word-style bash
 
@@ -35,7 +29,7 @@ export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .gi
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}' --height 50%"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --strip-cwd-prefix --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'eza --group-directories-first --tree --color=always {} | head -200'"
- export FZF_DEFAULT_OPTS=" \
+export FZF_DEFAULT_OPTS=" \
  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#a6e3a1 \
  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1"
@@ -119,4 +113,14 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+# Plugins
 source ~/.dev.zshrc
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
