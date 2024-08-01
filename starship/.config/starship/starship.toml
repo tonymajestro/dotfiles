@@ -12,7 +12,7 @@ palette = "catppuccin_macchiato"
 style = "blue"
 
 [character]
-success_symbol = "[❯](lavender2)"
+success_symbol = "[❯](mauve)"
 error_symbol = "[❯](mauve)"
 vimcmd_symbol = "[❮](green)"
 
