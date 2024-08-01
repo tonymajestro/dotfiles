@@ -1,2 +1,5 @@
+map <esc> quit
+map <enter> open 
 cmd open $nvim $fx
 set hidden
+set previewer ~/.config/lf/preview.sh
