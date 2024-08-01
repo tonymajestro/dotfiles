@@ -1,0 +1,2 @@
+cmd open $nvim $fx
+set hidden
