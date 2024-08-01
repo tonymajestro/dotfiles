@@ -67,23 +67,6 @@ _fzf_comprun() {
   esac
 }
 
-# Colors
-export BAT_THEME="Catppuccin Mocha"
-export LS_COLORS="$(vivid generate catppuccin-mocha)"
-
-# Aliases
-alias ls='eza --color=always --icons=always --group-directories-first --oneline'
-alias cat='bat'
-alias tree='eza --tree --color=always --group-directories-first'
-alias vim='nvim'
-alias lg='lazygit'
-alias lf='lfcd'
-
-# Key bindings
-bindkey -e
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-
 # zsh history settings
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -105,6 +88,30 @@ zstyle ':completion:*' menu no
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+# Colors
+export BAT_THEME="Catppuccin Mocha"
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
+
+# Aliases
+alias ls='eza --color=always --icons=always --group-directories-first --oneline'
+alias cat='bat'
+alias tree='eza --tree --color=always --group-directories-first'
+alias vim='nvim'
+alias lg='lazygit'
+alias lf='lfcd'
+
+# Key bindings
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# Autocomplete settings
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # change directories on lf exit
 lfcd () {

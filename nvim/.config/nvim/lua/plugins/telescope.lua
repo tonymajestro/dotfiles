@@ -16,6 +16,7 @@ return {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-p>"] = layout.toggle_preview,
+            ["<c-d>"] = actions.delete_buffer,
           },
         },
         path_display = { "smart" },

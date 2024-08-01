@@ -25,3 +25,5 @@ opt.splitbelow = true
 
 -- Remove tab hints
 opt.list = false
+
+opt.scrolloff = 10
