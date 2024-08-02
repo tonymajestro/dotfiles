@@ -10,16 +10,15 @@ local function scheme_for_appearance(appearance)
 	end
 end
 
-config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 config.font_size = 22
+config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
-	left = 12,
-	right = 12,
+	left = 14,
+	right = 14,
 	top = 0,
 	bottom = 0,
 }
 
--- and finally, return the configuration to wezterm
 return config

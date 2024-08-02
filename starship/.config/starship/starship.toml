@@ -3,6 +3,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_status\
 $line_break\
 $character"""
 right_format = """$cmd_duration"""
@@ -24,6 +25,9 @@ style = "yellow"
 [git_branch]
 style = "bold green"
 format = " [$symbol$branch(:$remote_branch)]($style)"
+
+[git_status]
+style = "bold yellow"
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
