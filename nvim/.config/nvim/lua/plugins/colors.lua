@@ -16,7 +16,7 @@ return {
     return {
       update_interval = 5000,
       set_dark_mode = function()
-        setColors("dark", "catppuccin-mocha")
+        setColors("dark", "catppuccin-macchiato")
       end,
       set_light_mode = function()
         setColors("light", "catppuccin-latte")
