@@ -1,2 +1,4 @@
 nvim/lazy-lock.json
 nvim/.config/nvim/lua/majestro/dev/keymaps.lua
+tmux/.tmux.conf
+starship/.config/starship/starship.toml

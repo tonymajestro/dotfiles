@@ -11,8 +11,9 @@ export MANWIDTH=999
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # Starship
+export STARSHIP_CONFIG_DIR=~/.config/starship
+export STARSHIP_CONFIG="$STARSHIP_CONFIG_DIR/starship.toml"
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 autoload -U select-word-style
 select-word-style bash
