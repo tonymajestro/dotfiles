@@ -1,22 +1,18 @@
+# Path
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="~/programs/bin:$PATH"
 
+# Man pages
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
+
+# Naviagion
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+# Starship
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-# Setup bat themes
-BAT_THEMES_DIR="$(bat --config-dir)/themes"
-if [ ! -d "$BAT_THEMES_DIR" ]; then
-  wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme
-  wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme
-  wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
-  wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
-
-  bat cache --build
-fi
 
 autoload -U select-word-style
 select-word-style bash
@@ -29,10 +25,6 @@ export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .gi
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}' --height 50%"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --strip-cwd-prefix --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'eza --group-directories-first --tree --color=always {} | head -200'"
-export FZF_DEFAULT_OPTS=" \
- --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#a6e3a1 \
- --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
- --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#a6e3a1"
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
@@ -82,10 +74,6 @@ zstyle ':completion:*' menu no
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
-# Colors
-export BAT_THEME="Catppuccin Mocha"
-export LS_COLORS="$(vivid generate catppuccin-mocha)"
-
 # Aliases
 alias ls='eza --color=always --icons=always --group-directories-first --oneline'
 alias cat='bat'
@@ -98,11 +86,8 @@ alias lf='lfcd'
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-
-# Autocomplete settings
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
+bindkey '^o' lfcd
+bindkey -s '^v' 'source ~/.zshrc\n'
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -115,10 +100,11 @@ bindkey -s '^o' 'lfcd\n'
 
 # Plugins
 source ~/.dev.zshrc
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.colors.zshrc
 
 if type brew &>/dev/null; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
   autoload -Uz compinit

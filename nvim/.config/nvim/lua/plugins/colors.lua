@@ -1,26 +1,29 @@
+local theme = vim.env.NVIM_THEME
+if theme == nil or theme == "" then
+  theme = "catppuccin-latte"
+end
+
 return {
-  "f-person/auto-dark-mode.nvim",
-  opts = function()
-    local lualine = require("lualine")
-
-    local function setColors(mode, theme)
-      vim.api.nvim_set_option_value("background", mode, {})
-      vim.cmd("colorscheme " .. theme)
-      lualine.setup({
-        options = {
-          theme = theme,
-        },
-      })
-    end
-
-    return {
-      update_interval = 5000,
-      set_dark_mode = function()
-        setColors("dark", "catppuccin-macchiato")
-      end,
-      set_light_mode = function()
-        setColors("light", "catppuccin-latte")
-      end,
-    }
-  end,
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = theme,
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        theme = theme,
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "filename" },
+        lualine_c = {},
+        lualine_x = { "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+    },
+  },
 }
