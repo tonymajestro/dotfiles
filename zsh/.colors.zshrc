@@ -6,6 +6,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
     export BAT_THEME='Catppuccin Macchiato'
     export NVIM_THEME='catppuccin-macchiato'
     export TMUX_THEME='Macchiato'
+    export STARSHIP_CONFIG=~/.config/starship/starship.dark.toml
 
     export LS_COLORS="$(vivid generate catppuccin-macchiato)"
 
@@ -18,6 +19,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
     export BAT_THEME='Catppuccin Latte'
     export NVIM_THEME='catppuccin-latte'
     export TMUX_THEME='Latte'
+    export STARSHIP_CONFIG=~/.config/starship/starship.light.toml
 
     export LS_COLORS="$(vivid generate catppuccin-latte)"
 
