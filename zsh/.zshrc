@@ -82,6 +82,7 @@ alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
 alias lg='lazygit'
 alias lf='lfcd'
+alias d='docker'
 
 # Key bindings
 bindkey -e
