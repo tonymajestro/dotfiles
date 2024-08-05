@@ -76,7 +76,9 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # Aliases
+alias l='eza --color=always --icons=always --group-directories-first --oneline'
 alias ls='eza --color=always --icons=always --group-directories-first --oneline'
+alias ll='eza --color=always --icons=always --group-directories-first --oneline --all --long --header'
 alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
