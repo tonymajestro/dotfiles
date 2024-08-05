@@ -18,7 +18,7 @@ eval "$(starship init zsh)"
 autoload -U select-word-style
 select-word-style bash
 
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 # Fzf options
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git --exclude brazil-pkg-cache --exclude .cache --exclude WorkDocsDownloads --exclude Downloads'
@@ -102,13 +102,10 @@ bindkey -s '^o' 'lfcd\n'
 
 # Plugins
 source ~/.dev.zshrc
-source ~/.colors.zshrc
+# source ~/.colors.zshrc
 
 if type brew &>/dev/null; then
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi

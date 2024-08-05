@@ -38,10 +38,10 @@ fi
 
 # Set tmux colors
 if [ ! -z $TMUX ]; then
-  tmux set -g @plugin 'catppuccin/tmux'
-  tmux set -g @catppuccin_flavour "$TMUX_THEME"
-  tmux run '~/.tmux/plugins/tpm/tpm'
-  tmux source-file $TMUX_CONFIG
+  # tmux set -g @plugin 'catppuccin/tmux'
+  # tmux set -g @catppuccin_flavour "$TMUX_THEME"
+  # tmux run '~/.tmux/plugins/tpm/tpm'
+  # tmux source-file $TMUX_CONFIG
 fi
 
 # Setup bat repos
