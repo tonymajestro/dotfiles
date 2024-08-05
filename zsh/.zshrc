@@ -91,7 +91,6 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^o' lfcd
-bindkey -s '^v' 'source ~/.zshrc\n'
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -102,9 +101,20 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
+colorRefresh() {
+  if [ ! -z $TMUX ]; then
+    tmux set -g @plugin 'catppuccin/tmux'
+    tmux set -g @catppuccin_flavour "$TMUX_THEME"
+    tmux run '~/.tmux/plugins/tpm/tpm'
+    tmux source-file $TMUX_CONFIG
+  fi
+  source ~/.colors.zshrc
+}
+bindkey -s '^v' 'colorRefresh\n'
+
 # Plugins
 source ~/.dev.zshrc
-# source ~/.colors.zshrc
+source ~/.colors.zshrc
 
 if type brew &>/dev/null; then
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

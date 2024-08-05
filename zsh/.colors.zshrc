@@ -36,14 +36,6 @@ else
   cat "$TMUX_LIGHT_CONFIG" > $TMUX_CONFIG
 fi
 
-# Set tmux colors
-if [ ! -z $TMUX ]; then
-  # tmux set -g @plugin 'catppuccin/tmux'
-  # tmux set -g @catppuccin_flavour "$TMUX_THEME"
-  # tmux run '~/.tmux/plugins/tpm/tpm'
-  # tmux source-file $TMUX_CONFIG
-fi
-
 # Setup bat repos
 BAT_THEMES_DIR="$(bat --config-dir)/themes"
 if [ ! -d "$BAT_THEMES_DIR" ]; then
