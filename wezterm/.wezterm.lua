@@ -10,7 +10,7 @@ local function scheme_for_appearance(appearance)
 	end
 end
 
-config.font_size = 14
+config.font_size = 22
 config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.hide_tab_bar_if_only_one_tab = true
