@@ -85,6 +85,7 @@ alias vim='nvim'
 alias lg='lazygit'
 alias lf='lfcd'
 alias d='docker'
+alias p3='python3'
 
 # Key bindings
 bindkey -e
