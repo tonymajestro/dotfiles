@@ -2,6 +2,7 @@
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="~/programs/bin:$PATH"
+export PATH="~/go/bin:$PATH"
 
 # Man pages
 export MANPAGER='nvim +Man!'
