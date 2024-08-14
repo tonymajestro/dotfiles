@@ -13,8 +13,8 @@ return {
     },
   },
   opts = {
-    mapping = {
-      n = { ["q"] = "TroubleToggle" },
+    keys = {
+      ["<esc>"] = "close",
     },
   },
 }
