@@ -15,4 +15,9 @@ return {
       scrolloff_percentage = 0.2,
     },
   },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+  },
 }
