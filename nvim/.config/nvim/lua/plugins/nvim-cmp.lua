@@ -1,5 +1,8 @@
 return {
   "hrsh7th/nvim-cmp",
+  dependencies = {
+    "L3MON4D3/LuaSnip",
+  },
   opts = function()
     local cmp = require("cmp")
     return {
@@ -10,9 +13,9 @@ return {
         { name = "buffer" },
       }),
       mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
       }),
     }
   end,

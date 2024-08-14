@@ -20,6 +20,8 @@ return {
       },
       mappings = {
         ["<Esc>"] = "close_window",
+        ["|"] = "open_vsplit",
+        ["-"] = "open_split",
       },
     },
     event_handlers = {
