@@ -104,13 +104,13 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 colorRefresh() {
+  source ~/.colors.zshrc
   if [ ! -z $TMUX ]; then
     tmux set -g @plugin 'catppuccin/tmux'
     tmux set -g @catppuccin_flavour "$TMUX_THEME"
     tmux run '~/.tmux/plugins/tpm/tpm'
     tmux source-file $TMUX_CONFIG
   fi
-  source ~/.colors.zshrc
 }
 bindkey -s '^v' 'colorRefresh\n'
 
