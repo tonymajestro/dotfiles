@@ -14,8 +14,8 @@ palette = "catppuccin_latte"
 style = "blue"
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](purple)"
+success_symbol = "[❯](mauve)"
+error_symbol = "[❯](mauve)"
 vimcmd_symbol = "[❮](green)"
 
 [cmd_duration]
