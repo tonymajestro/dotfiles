@@ -20,4 +20,14 @@ return {
     event = "InsertEnter",
     opts = {},
   },
+  "mfussenegger/nvim-jdtls",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      auto_install = true,
+      ensure_installed = {
+        "java",
+      },
+    },
+  },
 }

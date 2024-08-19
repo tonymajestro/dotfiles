@@ -13,5 +13,10 @@ return {
         },
       },
     },
+    setup = {
+      jdtls = function()
+        return true
+      end,
+    },
   },
 }

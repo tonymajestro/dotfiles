@@ -3,21 +3,18 @@ return {
   keys = {
     {
       "<leader>xx",
-      "<cmd>Trouble diagnostics toggle focus=true<cr>",
+      "<cmd>Trouble diagnostics focus=true<cr>",
       desc = "Diagnostics (Trouble)",
     },
     {
       "<leader>xX",
-      "<cmd>Trouble diagnostics focus=true toggle filter.buf=0<cr>",
+      "<cmd>Trouble diagnostics focus=true filter.buf=0<cr>",
       desc = "Buffer Diagnostics (Trouble)",
-    },
-    {
-      "<leader>k",
-      vim.diagnostic.open_float,
-      desc = "Open lsp diagnostics in floating window",
     },
   },
   opts = {
+    warn_no_results = false,
+    open_no_results = true,
     keys = {
       ["<esc>"] = "close",
     },
