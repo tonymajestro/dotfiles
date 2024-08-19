@@ -24,9 +24,9 @@ if [[ $theme == "Dark" ]]; then
   export NVIM_THEME='catppuccin-macchiato'
   export LS_COLORS="$(vivid generate catppuccin-macchiato)"
   export FZF_DEFAULT_OPTS=" \
-    --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+    --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#c6a0f6 \
     --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
-    --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+    --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#c6a0f6"
 
   cat "$STARSHIP_CONFIG_DIR/starship.dark.toml" > "$STARSHIP_CONFIG"
   cat "$TMUX_DARK_CONFIG" > $TMUX_CONFIG
@@ -37,9 +37,9 @@ else
 
   export LS_COLORS="$(vivid generate catppuccin-latte)"
   export FZF_DEFAULT_OPTS=" \
-  --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
+  --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#8839ef \
   --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
-  --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39" export LS_COLORS="$(vivid generate catppuccin-latte)"
+  --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#8839ef" 
 
   cat "$STARSHIP_CONFIG_DIR/starship.light.toml" > "$STARSHIP_CONFIG"
   cat "$TMUX_LIGHT_CONFIG" > $TMUX_CONFIG
