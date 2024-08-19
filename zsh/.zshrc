@@ -1,8 +1,8 @@
 # Path
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="~/programs/bin:$PATH"
-export PATH="~/go/bin:$PATH"
+export PATH="$HOME/programs/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # Man pages
 export MANPAGER='nvim +Man!'
@@ -74,7 +74,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 # Aliases
 alias l='eza --color=always --icons=always --group-directories-first --oneline'
@@ -95,7 +95,7 @@ bindkey '^n' history-search-forward
 bindkey '^o' lfcd
 
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 # change directories on lf exit
 lfcd () {
@@ -123,3 +123,17 @@ if type brew &>/dev/null; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
+
+# Scripts
+awsAssumeRole() {
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+  unset AWS_SESSION_TOKEN
+
+  export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+    $(aws sts assume-role \
+    --role-arn $1 \
+    --role-session-name MySessionName \
+    --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+    --output text))
+}
