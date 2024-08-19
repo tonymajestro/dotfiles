@@ -23,3 +23,6 @@ vim.api.nvim_set_keymap("v", "kj", "<Esc>", {})
 -- Don't remain in visual mode when shifting text
 map("v", ">", ">", {})
 map("v", "<", "<", {})
+
+-- Visual repeat
+map("v", ".", ":normal .<cr>")
