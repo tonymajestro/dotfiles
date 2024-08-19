@@ -22,12 +22,16 @@ return {
   },
   "mfussenegger/nvim-jdtls",
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      auto_install = true,
-      ensure_installed = {
-        "java",
-      },
-    },
+    "LazyVim/LazyVim",
+    opts = function()
+      local theme = vim.env.NVIM_THEME
+      if theme == nil or theme == "" then
+        theme = "catppuccin-latte"
+      end
+
+      return {
+        colorscheme = theme,
+      }
+    end,
   },
 }
