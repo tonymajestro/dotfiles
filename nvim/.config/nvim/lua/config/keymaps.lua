@@ -16,9 +16,9 @@ map("i", "<C-e>", "<End>", { desc = "Move cursor to end of line in insert mode" 
 map("n", "<C-h>", "<C-w><C-h>")
 map("n", "<C-l>", "<C-w><C-l>")
 
--- Map tab to escape
+-- Map kj to escape
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", {})
-vim.api.nvim_set_keymap("v", "kj", "<Esc>", {})
+-- vim.api.nvim_set_keymap("v", "kj", "<Esc>", {})
 
 -- Don't remain in visual mode when shifting text
 map("v", ">", ">", {})
