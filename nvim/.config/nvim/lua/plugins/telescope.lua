@@ -35,5 +35,10 @@ return {
   end,
   keys = {
     { "<leader>fg", "<cmd>Telescope git_status<CR>", desc = "Telescope git status" },
+    {
+      "<leader><space>",
+      "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+      desc = "Telescope open buffers",
+    },
   },
 }
