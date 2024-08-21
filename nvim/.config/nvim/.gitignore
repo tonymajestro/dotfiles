@@ -8,3 +8,4 @@ foo.*
 data
 lazy-lock.json
 ftplugin/java.lua
+lua/config/dev.lua
