@@ -125,7 +125,7 @@ if type brew &>/dev/null; then
 fi
 
 # Scripts
-awsAssumeRole() {
+assumeRole() {
   unset AWS_ACCESS_KEY_ID
   unset AWS_SECRET_ACCESS_KEY
   unset AWS_SESSION_TOKEN
@@ -137,3 +137,10 @@ awsAssumeRole() {
     --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
     --output text))
 }
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
