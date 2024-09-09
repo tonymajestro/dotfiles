@@ -4,6 +4,8 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/programs/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+export EDITOR="nvim"
+
 # Man pages
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
@@ -108,7 +110,6 @@ colorRefresh() {
   if [ ! -z $TMUX ]; then
     tmux set -g @plugin 'catppuccin/tmux'
     tmux set -g @catppuccin_flavour "$TMUX_THEME"
-    tmux run '~/.tmux/plugins/tpm/tpm'
     tmux source-file $TMUX_CONFIG
   fi
 }
@@ -144,3 +145,4 @@ assumeRole() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.config/tmux-sessionizer:$PATH"
