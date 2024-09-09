@@ -24,12 +24,12 @@ select-word-style bash
 autoload -Uz compinit && compinit
 
 # Fzf options
-export FZF_EXCLUDES='--exclude .git --exclude brazil-pkg-cache --exclude .cache --exclude Downloads --exclude Library --exclude go --exclude WorkDocsDownload --exclude .vscode --exclude .workspace --exclude build --exclude env'
+export FZF_EXCLUDES='--exclude .git --exclude brazil-pkg-cache --exclude .cache --exclude Downloads --exclude Library --exclude go --exclude WorkDocsDownload --exclude .vscode --exclude .workspace --exclude build --exclude env --exclude .bemol --exclude .idea --exclude .brazil --exclude logs'
 export FZF_DEFAULT_COMMAND="fd --hidden $FZF_EXCLUDES"
 export FZF_CTRL_T_COMMAND="fd --type f $FZF_EXCLUDES"
-export FZF_CTRL_T_OPTS='--tmux 80%'
+export FZF_CTRL_T_OPTS='--tmux 90%'
 export FZF_ALT_C_COMMAND="fd . --full-path $HOME --type d --hidden --follow $FZF_EXCLUDES"
-export FZF_ALT_C_OPTS='--tmux 80%'
+export FZF_ALT_C_OPTS='--tmux 90%'
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
