@@ -20,7 +20,6 @@ return {
     event = "InsertEnter",
     opts = {},
   },
-  "mfussenegger/nvim-jdtls",
   {
     "LazyVim/LazyVim",
     opts = function()
@@ -33,5 +32,27 @@ return {
         colorscheme = theme,
       }
     end,
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.nvim",
+    },
+  },
+  {
+    "opdavies/toggle-checkbox.nvim",
+    keys = {
+      {
+        "<leader>cc",
+        function()
+          require("toggle-checkbox").toggle()
+        end,
+        desc = "Toggle checkbox",
+        mode = { "n", "v" },
+        ft = "markdown",
+      },
+    },
   },
 }
