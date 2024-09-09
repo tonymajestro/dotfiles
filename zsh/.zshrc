@@ -86,7 +86,6 @@ alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
 alias lg='lazygit'
-alias lf='lfcd'
 alias d='docker'
 alias p3='python3'
 
@@ -94,16 +93,21 @@ alias p3='python3'
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-bindkey '^o' lfcd
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
-# change directories on lf exit
-lfcd () {
-  cd "$(command lf -print-last-dir "$@")"
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
-bindkey -s '^o' 'lfcd\n'
+bindkey -s '^o' 'y\n'
+
+
 
 colorRefresh() {
   source ~/.colors.zshrc
