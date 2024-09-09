@@ -24,22 +24,23 @@ select-word-style bash
 autoload -Uz compinit && compinit
 
 # Fzf options
-export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git --exclude brazil-pkg-cache --exclude .cache --exclude WorkDocsDownloads --exclude Downloads'
-export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .git'
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}' --height 50%"
-export FZF_ALT_C_COMMAND='fd --type d --hidden --strip-cwd-prefix --exclude .git'
-export FZF_ALT_C_OPTS="--preview 'eza --group-directories-first --tree --color=always {} | head -200'"
+export FZF_EXCLUDES='--exclude .git --exclude brazil-pkg-cache --exclude .cache --exclude Downloads --exclude Library --exclude go --exclude WorkDocsDownload --exclude .vscode --exclude .workspace --exclude build --exclude env'
+export FZF_DEFAULT_COMMAND="fd --hidden $FZF_EXCLUDES"
+export FZF_CTRL_T_COMMAND="fd --type f $FZF_EXCLUDES"
+export FZF_CTRL_T_OPTS='--tmux 80%'
+export FZF_ALT_C_COMMAND="fd . --full-path $HOME --type d --hidden --follow $FZF_EXCLUDES"
+export FZF_ALT_C_OPTS='--tmux 80%'
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fd --hidden --exclude ".git" . "$1"
+  fd --hidden --exclude ".git" --exclude brazil-pkg-cache . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --exclude ".git" . "$1"
+  fd --type d --hidden --exclude ".git" --exclude brazil-pkg-cache . "$1"
 }
 
 # Advanced customization of fzf options via _fzf_comprun function
