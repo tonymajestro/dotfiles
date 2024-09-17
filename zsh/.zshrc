@@ -30,6 +30,7 @@ export FZF_CTRL_T_COMMAND="fd --type f $FZF_EXCLUDES"
 export FZF_CTRL_T_OPTS='--tmux 90%'
 export FZF_ALT_C_COMMAND="fd . --full-path $HOME --type d --hidden --follow $FZF_EXCLUDES"
 export FZF_ALT_C_OPTS='--tmux 90%'
+export FZF_CTRL_R_OPTS="--height 60%"
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal

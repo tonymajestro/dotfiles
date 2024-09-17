@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-selected="$(find $TMUX_SESSIONIZER_DIRS -mindepth 1 -maxdepth 1 -type d | fzf --no-sort)"
+selected="$(find $TMUX_SESSIONIZER_DIRS -mindepth 1 -maxdepth 1 -type d | sort --reverse | uniq | fzf --no-sort)"
 
 if [[ -z $selected ]]; then
   exit 0

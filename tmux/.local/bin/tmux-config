@@ -2,7 +2,7 @@
 
 config_files=$(fd . --full-path "$HOME/.dotfiles" -H -t f -E .git -E .gitignore -E nvim -E README.md)
 nvim_home="$HOME/.config/nvim"
-selected=$(printf "$config_files\n$nvim_home" | fzf)
+selected=$(printf "$config_files\n$nvim_home" | sort --reverse | uniq | fzf)
 
 if [[ -z $selected ]]; then
   exit 0
