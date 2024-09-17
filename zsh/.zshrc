@@ -81,9 +81,10 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 # Aliases
-alias l='eza --color=always --icons=always --group-directories-first --oneline'
-alias ls='eza --color=always --icons=always --group-directories-first --oneline'
-alias ll='eza --color=always --icons=always --group-directories-first --oneline --all --long --header'
+export EZA_IGNORE='-I=".DocumentRevisions*|.fseventsd|.Spotlight-V100|.TemporaryItems|.Trashes|.swo|.swp"'
+alias l="eza --color=always --icons=always --group-directories-first --oneline $EZA_IGNORE"
+alias ls="eza --color=always --icons=always --group-directories-first --oneline $EZA_IGNORE"
+alias ll="eza --color=always --icons=always --group-directories-first --oneline --almost-all --long --header $EZA_IGNORE"
 alias cat='bat'
 alias tree='eza --tree --color=always --group-directories-first'
 alias vim='nvim'
