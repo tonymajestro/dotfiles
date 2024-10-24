@@ -5,16 +5,37 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, wezterm }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
+      environment.systemPackages = [ 
+          pkgs.bat
+          pkgs.eza
+          pkgs.fd
+          pkgs.fzf
+          pkgs.jq
+          pkgs.lazygit
+          pkgs.neovim
+          pkgs.ripgrep
+          pkgs.starship
+          pkgs.stow
+          pkgs.tmux
+          pkgs.vivid
+          pkgs.watch
+          pkgs.wget
+          pkgs.yazi
+          pkgs.zoxide
+          inputs.wezterm.packages.${pkgs.system}.default
         ];
+
+      fonts.packages = with pkgs; [
+        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      ];
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
@@ -23,9 +44,10 @@
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
-      # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
+      # Set up zsh
+      programs.zsh = {
+        enable = true;
+      };
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
