@@ -2,16 +2,8 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-local function scheme_for_appearance(appearance)
-	if appearance:find("Dark") then
-		return "Catppuccin Macchiato"
-	else
-		return "Catppuccin Latte"
-	end
-end
-
-config.font_size = 22
-config.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
+config.font_size = 18
+config.color_scheme = "Catppuccin Macchiato"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
@@ -20,6 +12,67 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+
 config.adjust_window_size_when_changing_font_size = false
+config.default_prog = { "/usr/bin/fish", "-l" }
+
+-- keybindings
+config.leader = {
+	key = "Space",
+	mods = "CTRL",
+	timeout_milliseconds = 1000,
+}
+config.keys = {
+	{
+		key = "l",
+		mods = "ALT",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "h",
+		mods = "ALT",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "j",
+		mods = "ALT",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "ALT",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "|",
+		mods = "LEADER|SHIFT",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "-",
+		mods = "LEADER",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "d",
+		mods = "LEADER",
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
+	},
+	{
+		key = "n",
+		mods = "LEADER",
+		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key = "l",
+		mods = "LEADER",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+	{
+		key = "h",
+		mods = "LEADER",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+}
 
 return config

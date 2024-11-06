@@ -22,16 +22,9 @@ return {
   },
   {
     "LazyVim/LazyVim",
-    opts = function()
-      local theme = vim.env.NVIM_THEME
-      if theme == nil or theme == "" then
-        theme = "catppuccin-latte"
-      end
-
-      return {
-        colorscheme = theme,
-      }
-    end,
+    opts = {
+      colorscheme = "catppuccin-macchiato",
+    },
   },
   {
     "opdavies/toggle-checkbox.nvim",
