@@ -15,6 +15,7 @@ SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:8aadf4
 SETUVAR fish_color_host_remote:a6da95
 SETUVAR fish_color_keyword:ed8796
+SETUVAR fish_color_match:F07178
 SETUVAR fish_color_normal:cad3f5
 SETUVAR fish_color_operator:f5bde6
 SETUVAR fish_color_option:a6da95

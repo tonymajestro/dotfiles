@@ -26,18 +26,4 @@ return {
       colorscheme = "catppuccin-macchiato",
     },
   },
-  {
-    "opdavies/toggle-checkbox.nvim",
-    keys = {
-      {
-        "<leader>cc",
-        function()
-          require("toggle-checkbox").toggle()
-        end,
-        desc = "Toggle checkbox",
-        mode = { "n", "v" },
-        ft = "markdown",
-      },
-    },
-  },
 }
