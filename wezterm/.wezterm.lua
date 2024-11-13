@@ -14,7 +14,7 @@ config.window_padding = {
 }
 
 config.adjust_window_size_when_changing_font_size = false
-config.default_prog = { "/usr/bin/fish", "-l" }
+config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 
 -- keybindings
 config.leader = {
@@ -69,8 +69,18 @@ config.keys = {
 		action = wezterm.action.ActivateTabRelative(1),
 	},
 	{
+		key = "l",
+		mods = "LEADER|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+	{
 		key = "h",
 		mods = "LEADER",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	{
+		key = "h",
+		mods = "LEADER|SHIFT",
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
 }
