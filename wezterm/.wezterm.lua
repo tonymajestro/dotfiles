@@ -88,6 +88,11 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.ActivateCopyMode,
 	},
+	{
+		key = "m",
+		mods = "LEADER",
+		action = wezterm.action.TogglePaneZoomState,
+	},
 }
 
 return config
