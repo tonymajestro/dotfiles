@@ -83,6 +83,11 @@ config.keys = {
 		mods = "LEADER|SHIFT",
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
+	{
+		key = "y",
+		mods = "LEADER",
+		action = wezterm.action.ActivateCopyMode,
+	},
 }
 
 return config
