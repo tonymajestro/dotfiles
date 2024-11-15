@@ -3,3 +3,4 @@ nvim/.config/nvim/lazy-lock.json
 starship/.config/starship/starship.toml
 tmux/.tmux.conf
 zsh/.dev.zshrc
+**/.DS_Store

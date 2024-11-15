@@ -29,9 +29,19 @@ config.keys = {
 		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
 	{
+		key = "l",
+		mods = "ALT|SHIFT",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+	{
 		key = "h",
 		mods = "ALT",
 		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "h",
+		mods = "ALT|SHIFT",
+		action = wezterm.action.ActivateTabRelative(-1),
 	},
 	{
 		key = "j",
@@ -62,26 +72,6 @@ config.keys = {
 		key = "n",
 		mods = "LEADER",
 		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
-	},
-	{
-		key = "l",
-		mods = "LEADER",
-		action = wezterm.action.ActivateTabRelative(1),
-	},
-	{
-		key = "l",
-		mods = "LEADER|SHIFT",
-		action = wezterm.action.ActivateTabRelative(1),
-	},
-	{
-		key = "h",
-		mods = "LEADER",
-		action = wezterm.action.ActivateTabRelative(-1),
-	},
-	{
-		key = "h",
-		mods = "LEADER|SHIFT",
-		action = wezterm.action.ActivateTabRelative(-1),
 	},
 	{
 		key = "y",
