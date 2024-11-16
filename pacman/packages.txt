@@ -12,7 +12,6 @@ nodejs-lts-hydrogen
 npm
 ripgrep
 starship
-steam
 stow
 tldr
 ttf-nerd-fonts-symbols-mono
