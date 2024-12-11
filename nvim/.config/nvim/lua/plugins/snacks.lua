@@ -10,10 +10,8 @@ return {
           {
             icon = "󰔱",
             key = "e",
-            desc = "Open oil file explorer",
-            action = function()
-              require("oil").open()
-            end,
+            desc = "Open file explorer",
+            action = "<cmd>Yazi<cr>",
           },
           { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
