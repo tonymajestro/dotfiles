@@ -1,5 +1,5 @@
 return {
-  "folke/snacks.nvim",
+  "snacks.nvim",
   opts = {
     dashboard = {
       preset = {
@@ -14,5 +14,6 @@ return {
         },
       },
     },
+    indent = { enabled = false },
   },
 }

@@ -25,3 +25,5 @@ opt.splitbelow = true
 
 -- Remove tab hints
 opt.list = false
+
+vim.g.snacks_animate = false

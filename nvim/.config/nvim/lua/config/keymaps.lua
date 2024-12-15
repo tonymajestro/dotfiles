@@ -29,6 +29,3 @@ map("v", ".", ":normal .<cr>")
 
 -- Open diagnostics in floating window
 map("n", "<leader>K", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open diagnostics in floating window" })
-
--- Dev stuff
-require("config.dev")

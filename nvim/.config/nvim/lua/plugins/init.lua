@@ -1,12 +1,9 @@
 return {
   "tpope/vim-repeat",
-  "tpope/vim-fugitive",
   {
-    "akinsho/bufferline.nvim",
+    "LazyVim/LazyVim",
     opts = {
-      options = {
-        always_show_bufferline = true,
-      },
+      colorscheme = "catppuccin-macchiato",
     },
   },
   {
@@ -21,9 +18,11 @@ return {
     opts = {},
   },
   {
-    "LazyVim/LazyVim",
+    "akinsho/bufferline.nvim",
     opts = {
-      colorscheme = "catppuccin-macchiato",
+      options = {
+        always_show_bufferline = true,
+      },
     },
   },
 }
