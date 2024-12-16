@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.font_size = 17
 config.color_scheme = "Catppuccin Macchiato"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-config.hide_tab_bar_if_only_one_tab = true
+
 config.window_padding = {
 	left = 14,
 	right = 14,
@@ -13,6 +13,7 @@ config.window_padding = {
 	bottom = 0,
 }
 
+config.hide_tab_bar_if_only_one_tab = true
 config.adjust_window_size_when_changing_font_size = false
 config.default_prog = { "/usr/bin/fish", "-l" }
 
