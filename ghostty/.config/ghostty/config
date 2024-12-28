@@ -1,0 +1,25 @@
+command = /usr/bin/fish --login --interactive
+shell-integration = fish
+shell-integration-features = no-cursor,sudo,title
+
+theme = catppuccin-macchiato
+
+# boomer eyes
+font-size = 17
+
+# disable ligatures
+font-feature = -calt
+font-feature = -liga 
+font-feature = -dlig
+
+# keybindings
+keybind = ctrl+space>n=new_tab
+keybind = ctrl+space>l=next_tab
+keybind = ctrl+space>h=previous_tab
+keybind = ctrl+space>shift+backslash=new_split:right
+keybind = ctrl+space>minus=new_split:down
+keybind = alt+shift+l=goto_split:right
+keybind = alt+shift+h=goto_split:left
+keybind = alt+shift+j=goto_split:bottom
+keybind = alt+shift+k=goto_split:top
+keybind = ctrl+space>d=close_window
