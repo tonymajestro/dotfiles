@@ -1,0 +1,12 @@
+
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+[manager]
+prepend_keymap = [
+  { on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+  { on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
+	{ on = [ "g", "d" ],       run = "cd ~/.dotfiles",   desc = "Goto ~/.dotfiles" },
+	{ on = [ "g", "p" ],       run = "cd ~/programs",   desc = "Goto ~/programs" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+]
