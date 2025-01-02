@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.font_size = 17
+config.font_size = 16
 config.color_scheme = "Catppuccin Macchiato"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
