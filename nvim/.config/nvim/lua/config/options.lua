@@ -27,3 +27,4 @@ opt.splitbelow = true
 opt.list = false
 
 vim.g.snacks_animate = false
+vim.o.shell = "fish"
