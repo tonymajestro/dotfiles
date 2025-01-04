@@ -4,7 +4,6 @@ if status is-interactive
         set -x PATH /opt/homebrew/opt/node@20/bin $PATH
     end
 
-    set -gx EDITOR nvim
     fish_config theme choose CatppuccinMacchiato
 
     fzf --fish | source
