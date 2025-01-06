@@ -31,22 +31,22 @@ config.leader = {
 config.keys = {
 	{
 		key = "l",
-		mods = "ALT",
+		mods = "ALT|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
 	{
 		key = "h",
-		mods = "ALT",
+		mods = "ALT|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Left"),
 	},
 	{
 		key = "j",
-		mods = "ALT",
+		mods = "ALT|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Down"),
 	},
 	{
 		key = "k",
-		mods = "ALT",
+		mods = "ALT|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Up"),
 	},
 	{
