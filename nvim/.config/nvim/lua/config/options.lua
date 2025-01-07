@@ -28,3 +28,7 @@ opt.list = false
 
 vim.g.snacks_animate = false
 vim.o.shell = "fish"
+
+-- helps with scrolling lag due to number, relativenumber, and cursorline
+vim.o.rdb = "nodelta"
+vim.o.wd = 10
