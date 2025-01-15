@@ -23,12 +23,10 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
+opt.timeoutlen = 1000
+opt.ttimeoutlen = 0
+
 -- Remove tab hints
 opt.list = false
 
-vim.g.snacks_animate = false
 vim.o.shell = "fish"
-
--- helps with scrolling lag due to number, relativenumber, and cursorline
-vim.o.rdb = "nodelta"
-vim.o.wd = 10
