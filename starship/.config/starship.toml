@@ -31,6 +31,10 @@ format = " [$symbol$branch(:$remote_branch)]($style) "
 [git_status]
 style = "bold yellow"
 
+[python]
+style = "bold peach"
+format = '[(\($virtualenv\) )]($style)'
+
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
