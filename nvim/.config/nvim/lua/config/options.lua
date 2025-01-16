@@ -30,3 +30,4 @@ opt.ttimeoutlen = 0
 opt.list = false
 
 vim.o.shell = "fish"
+vim.g.snacks_animate = false
