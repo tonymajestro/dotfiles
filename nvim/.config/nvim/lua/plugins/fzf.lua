@@ -7,6 +7,11 @@ return {
         ["ctrl-q"] = "accept",
       },
     },
+    files = {
+      actions = {
+        ["enter"] = require("fzf-lua.actions").file_edit,
+      },
+    },
   },
   keys = {
     { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
