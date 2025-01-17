@@ -31,3 +31,7 @@ map("n", "<leader>K", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open
 
 -- Ignore q:
 map("n", "q:", "<nop>", { noremap = true })
+
+-- Close buffers
+map("n", "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
+map("n", "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
