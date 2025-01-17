@@ -1,9 +1,10 @@
 return {
   "ibhagwan/fzf-lua",
   opts = {
-    files = {
-      actions = {
-        ["default"] = require("fzf-lua.actions").file_edit,
+    keymap = {
+      fzf = {
+        ["ctrl-a"] = "select-all",
+        ["ctrl-q"] = "accept",
       },
     },
   },
@@ -13,5 +14,6 @@ return {
     { "<leader>fR", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
     { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix List" },
   },
 }

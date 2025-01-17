@@ -23,9 +23,6 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
-opt.timeoutlen = 1000
-opt.ttimeoutlen = 0
-
 -- Remove tab hints
 opt.list = false
 

@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "git",
     "fugitiveblame",
     "trouble",
+    "qf",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -26,6 +27,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "fugitiveblame",
     "trouble",
     "help",
+    "qf",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

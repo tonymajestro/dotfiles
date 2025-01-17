@@ -35,3 +35,7 @@ map("n", "q:", "<nop>", { noremap = true })
 -- Close buffers
 map("n", "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
 map("n", "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
+
+-- quickfix list
+map("n", "<leader>qo", "<Cmd>copen<CR>", { desc = "Open quickfix list" })
+map("n", "<leader>qo", "<Cmd>copen<CR>", { desc = "Open quickfix list" })
