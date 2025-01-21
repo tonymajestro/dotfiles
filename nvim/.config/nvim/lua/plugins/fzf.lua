@@ -11,6 +11,20 @@ return {
       actions = {
         ["enter"] = require("fzf-lua.actions").file_edit,
       },
+      git_icons = false,
+    },
+    buffers = {
+      actions = {
+        ["ctrl-d"] = { fn = require("fzf-lua.actions").buf_del, reload = true },
+      },
+      sort_lastused = false,
+    },
+    previewers = {
+      builtin = {
+        treesitter = {
+          enabled = false,
+        },
+      },
     },
   },
   keys = {
