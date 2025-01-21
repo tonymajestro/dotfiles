@@ -4,12 +4,12 @@ return {
     keymap = {
       fzf = {
         ["ctrl-a"] = "select-all",
-        ["ctrl-q"] = "accept",
       },
     },
     files = {
       actions = {
         ["enter"] = require("fzf-lua.actions").file_edit,
+        ["ctrl-q"] = require("fzf-lua.actions").file_sel_to_qf,
       },
       git_icons = false,
     },
