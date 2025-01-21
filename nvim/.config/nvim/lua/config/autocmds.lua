@@ -47,10 +47,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("autoclose quickfix"),
+  group = augroup("autoclose_qflist"),
   pattern = { "qf" },
   callback = function(event)
-    vim.keymap.set("n", "<cr>", "<CR>:cclose<cr>", {
+    vim.keymap.set("n", "<cr>", "<cr>:cclose<cr>", {
       buffer = event.buf,
       silent = true,
       desc = "Quit buffer",
