@@ -35,13 +35,3 @@ map("n", "q:", "<nop>", { noremap = true })
 -- Close buffers
 map("n", "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
 map("n", "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
-
-vim.keymap.set("n", "<leader>qq", function()
-  require("quicker").toggle({
-    focus = true,
-    min_height = 10,
-    max_height = 20,
-  })
-end, {
-  desc = "Toggle quickfix",
-})
