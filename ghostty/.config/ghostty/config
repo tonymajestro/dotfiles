@@ -2,7 +2,7 @@ command = /usr/bin/fish --login --interactive
 shell-integration = fish
 shell-integration-features = no-cursor,sudo,title
 
-theme = catppuccin-macchiato
+theme = dark:catppuccin-macchiato,light:catppuccin-latte
 
 font-size = 12
 
