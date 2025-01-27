@@ -9,6 +9,9 @@ return {
         settings = {
           gopls = {
             usePlaceholders = false,
+            analyses = {
+              fieldalignment = false,
+            },
           },
         },
       },
