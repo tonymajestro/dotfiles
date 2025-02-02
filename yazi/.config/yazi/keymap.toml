@@ -9,4 +9,5 @@ prepend_keymap = [
 	{ on = [ "g", "n" ],       run = "cd ~/.dotfiles/nvim/.config/nvim",   desc = "Goto nvim config" },
 	{ on = [ "g", "p" ],       run = "cd ~/programs",   desc = "Goto ~/programs" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "v" ], run = "shell --block nvim", desc = "Run neovim" },
 ]
