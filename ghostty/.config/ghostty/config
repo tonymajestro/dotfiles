@@ -17,8 +17,8 @@ keybind = ctrl+space>l=next_tab
 keybind = ctrl+space>h=previous_tab
 keybind = ctrl+space>shift+backslash=new_split:right
 keybind = ctrl+space>minus=new_split:down
-keybind = alt+shift+l=goto_split:right
-keybind = alt+shift+h=goto_split:left
+keybind = alt+l=goto_split:right
+keybind = alt+h=goto_split:left
 keybind = alt+shift+j=goto_split:bottom
 keybind = alt+shift+k=goto_split:top
 keybind = ctrl+space>d=close_window
