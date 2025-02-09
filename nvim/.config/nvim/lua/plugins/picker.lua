@@ -32,10 +32,11 @@ return {
   keys = {
     {
       "<leader><space>",
-      LazyVim.pick("files", { root = false, layout = select }),
+      function()
+        Snacks.picker.smart({ multi = { "files" }, layout = select })
+      end,
       desc = "Find Files (cwd)",
     },
-    { "<leader>fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
     {
       "<leader>ff",
       LazyVim.pick("files", { root = false, hidden = true, ignored = true }),
