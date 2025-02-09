@@ -36,8 +36,16 @@ return {
       desc = "Find Files (cwd)",
     },
     { "<leader>fr", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
-    { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
-    { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    {
+      "<leader>ff",
+      LazyVim.pick("files", { root = false, hidden = true, ignored = true }),
+      desc = "Find Files (cwd)",
+    },
+    {
+      "<leader>fF",
+      LazyVim.pick("files", { hidden = true, ignored = true }),
+      desc = "Find Files (Root Dir)",
+    },
     { "<leader>sg", LazyVim.pick("live_grep"), desc = "Find Files (Root Dir)" },
     {
       "<leader>qq",
