@@ -1,5 +1,5 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
-ratio = [1, 1, 2]
+ratio = [1, 1, 1]
 show_hidden = true
