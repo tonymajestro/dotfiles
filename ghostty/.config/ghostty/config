@@ -14,6 +14,7 @@ font-feature = -dlig
 
 # keybindings
 keybind = ctrl+space>n=new_tab
+keybind = ctrl+space>m=toggle_split_zoom
 keybind = ctrl+l=next_tab
 keybind = ctrl+h=previous_tab
 keybind = ctrl+space>l=new_split:right
