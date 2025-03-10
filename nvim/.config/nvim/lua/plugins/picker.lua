@@ -48,12 +48,5 @@ return {
       desc = "Find Files (Root Dir)",
     },
     { "<leader>sg", LazyVim.pick("live_grep"), desc = "Find Files (Root Dir)" },
-    {
-      "<leader>qq",
-      function()
-        Snacks.picker.qflist({ layout = "ivy" })
-      end,
-      desc = "Find quickfix list",
-    },
   },
 }
