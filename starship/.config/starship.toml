@@ -35,6 +35,10 @@ style = "bold yellow"
 style = "bold peach"
 format = '[(\($virtualenv\) )]($style)'
 
+[hostname]
+ssh_only = true
+style = "blue"
+
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
