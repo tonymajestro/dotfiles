@@ -21,6 +21,8 @@ keybind = ctrl+space>l=new_split:right
 keybind = ctrl+space>j=new_split:down
 keybind = alt+l=goto_split:right
 keybind = alt+h=goto_split:left
+keybind = alt+shift+l=goto_split:right
+keybind = alt+shift+h=goto_split:left
 keybind = alt+n=goto_split:next
 keybind = alt+p=goto_split:previous
 keybind = alt+shift+j=goto_split:bottom
