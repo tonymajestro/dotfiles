@@ -38,3 +38,9 @@ map("n", "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers
 
 map("n", "<leader>ww", ":w<cr>")
 map("n", "<leader>wq", ":wq<cr>")
+
+-- Visual line
+map("n", "vv", "V")
+
+-- Open command
+map("n", "<leader>cc", ":")
