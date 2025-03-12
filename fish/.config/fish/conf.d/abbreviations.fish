@@ -5,3 +5,4 @@ abbr tree 'tree -C --gitignore'
 abbr pd prevd
 abbr nd nextd
 abbr untar 'tar -xzvf'
+abbr clip 'xclip -selection clipboard'
