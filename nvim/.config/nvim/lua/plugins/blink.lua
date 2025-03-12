@@ -3,11 +3,8 @@ return {
   opts = {
     keymap = {
       ["<C-n>"] = { "show", "select_next", "fallback" },
-      ["<C-s>"] = {
-        function(cmp)
-          cmp.show({ providers = { "snippets" } })
-        end,
-      },
+      ["<C-j>"] = { "show", "select_next", "fallback" },
+      ["<C-k>"] = { "select_prev", "fallback" },
     },
   },
 }
