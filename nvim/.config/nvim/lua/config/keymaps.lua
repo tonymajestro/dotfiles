@@ -36,8 +36,9 @@ map("n", "q:", "<nop>", { noremap = true })
 map("n", "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
 map("n", "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
 
-map("n", "<leader>ww", ":w<cr>")
+map("n", "<leader>w", ":w<cr>")
 map("n", "<leader>wq", ":wq<cr>")
+map("n", "<leader>q", ":q<cr>")
 
 -- Visual line
 map("n", "vv", "V")
