@@ -8,4 +8,11 @@ return {
       enabled = false,
     },
   },
+  keys = {
+    {
+      "<leader>fe",
+      "<cmd>lua Snacks.explorer()<cr>",
+      desc = "Open snacks explorer",
+    },
+  },
 }
