@@ -6,3 +6,4 @@ abbr pd prevd
 abbr nd nextd
 abbr untar 'tar -xzvf'
 abbr clip 'xclip -selection clipboard'
+abbr cp 'cp -r'
