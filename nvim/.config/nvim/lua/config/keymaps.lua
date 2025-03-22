@@ -33,15 +33,19 @@ map("n", "<leader>K", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open
 map("n", "q:", "<nop>", { noremap = true })
 
 -- Close buffers
-map("n", "<leader>bh", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
-map("n", "<leader>bl", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
+map("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
+map("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
 
-map("n", "<leader>w", ":w<cr>")
-map("n", "<leader>wq", ":wq<cr>")
-map("n", "<leader>q", ":q<cr>")
+map("n", "<leader>w", "<cmd>w<cr>")
+map("n", "<leader>wq", "<cmd>wq<cr>")
+map("n", "<leader>q", "<cmd>q<cr>")
 
 -- Visual line
 map("n", "vv", "V")
 
 -- Open command
-map("n", "<leader>cc", ":")
+map("n", "<leader>cc", "<Cmd>")
+
+-- GPT stuff
+map("n", "<leader>a", "ggVG<cmd>'<,'>!aichat -c<cr>")
+map("v", "<leader>a", "<cmd>'<,'>!aichat -c<cr>")
