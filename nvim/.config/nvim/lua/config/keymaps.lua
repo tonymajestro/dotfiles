@@ -49,3 +49,18 @@ map("n", "<leader>cc", "<Cmd>")
 -- GPT stuff
 map("n", "<leader>a", "ggVG<cmd>'<,'>!aichat -c<cr>")
 map("v", "<leader>a", "<cmd>'<,'>!aichat -c<cr>")
+
+-- Toggle syntax highlighting
+map("n", "<leader>uh", function()
+  local syntax_enabled = vim.g.syntax_on ~= nil
+
+  -- toggle nvim syntax highlighting
+  if syntax_enabled then
+    vim.api.nvim_command("syntax off")
+  else
+    vim.api.nvim_command("syntax on")
+  end
+
+  -- toggle treesitter syntax highlighting
+  vim.api.nvim_command("TSBufToggle highlight")
+end, { desc = "Toggle syntax highlighting" })
