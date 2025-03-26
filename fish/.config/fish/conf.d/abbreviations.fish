@@ -7,3 +7,4 @@ abbr nd nextd
 abbr untar 'tar -xzvf'
 abbr clip 'xclip -selection clipboard'
 abbr cp 'cp -r'
+abbr logout 'gnome-session-quit --logout --no-prompt'
