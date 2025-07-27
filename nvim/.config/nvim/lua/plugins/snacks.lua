@@ -23,7 +23,7 @@ return {
     {
       "<leader>e",
       function()
-        Snacks.explorer({ cwd = LazyVim.root() })
+        Snacks.explorer()
       end,
       desc = "Explorer Snacks (root dir)",
     },
