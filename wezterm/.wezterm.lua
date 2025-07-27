@@ -18,11 +18,7 @@ config.window_padding = {
 config.hide_tab_bar_if_only_one_tab = true
 config.adjust_window_size_when_changing_font_size = false
 
-if wezterm.target_triple == "aarch64-apple-darwin" then
-	config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
-else
-	config.default_prog = { "/usr/bin/fish", "-l" }
-end
+config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 
 -- keybindings
 config.leader = {
@@ -33,12 +29,12 @@ config.leader = {
 config.keys = {
 	{
 		key = "l",
-		mods = "ALT|SHIFT",
+		mods = "ALT",
 		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
 	{
 		key = "h",
-		mods = "ALT|SHIFT",
+		mods = "ALT",
 		action = wezterm.action.ActivatePaneDirection("Left"),
 	},
 	{
@@ -52,12 +48,12 @@ config.keys = {
 		action = wezterm.action.ActivatePaneDirection("Up"),
 	},
 	{
-		key = "|",
-		mods = "LEADER|SHIFT",
+		key = "l",
+		mods = "LEADER",
 		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
-		key = "-",
+		key = "j",
 		mods = "LEADER",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
@@ -73,22 +69,12 @@ config.keys = {
 	},
 	{
 		key = "l",
-		mods = "LEADER",
-		action = wezterm.action.ActivateTabRelative(1),
-	},
-	{
-		key = "l",
-		mods = "LEADER|SHIFT",
+		mods = "CTRL",
 		action = wezterm.action.ActivateTabRelative(1),
 	},
 	{
 		key = "h",
-		mods = "LEADER",
-		action = wezterm.action.ActivateTabRelative(-1),
-	},
-	{
-		key = "h",
-		mods = "LEADER|SHIFT",
+		mods = "CTRL",
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
 	{

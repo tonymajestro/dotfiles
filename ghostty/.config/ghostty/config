@@ -1,3 +1,4 @@
+shell-integration = fish
 shell-integration-features = no-cursor,sudo,title
 
 theme = dark:catppuccin-macchiato,light:catppuccin-latte
