@@ -7,16 +7,23 @@ return {
     scroll = {
       enabled = false,
     },
-    explorer = {
-      follow_file = true,
-      auto_close = true,
+    picker = {
+      sources = {
+        explorer = {
+          follow_file = true,
+          tree = true,
+          auto_close = true,
+        },
+      },
     },
   },
   keys = {
     {
       "<leader>e",
-      "<cmd>lua Snacks.explorer()<cr>",
-      desc = "Open snacks explorer",
+      function()
+        Snacks.explorer({ cwd = LazyVim.root() })
+      end,
+      desc = "Explorer Snacks (root dir)",
     },
   },
 }
