@@ -1,30 +1,27 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
---
-local opt = vim.opt
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.relativenumber = true
 
-opt.number = true
-opt.relativenumber = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-opt.ignorecase = true
-opt.smartcase = true
+vim.o.background = "dark"
+vim.o.signcolumn = "yes"
+vim.o.pumblend = 0
 
-opt.background = "dark"
-opt.signcolumn = "yes"
-opt.pumblend = 0
-
-opt.backspace = "indent,eol,start"
+vim.opt.backspace = { "indent", "eol", "start" }
 
 -- use system clipboard
-opt.clipboard:append("unnamedplus")
+vim.opt.clipboard:append("unnamedplus")
 
 -- split windows
-opt.splitright = true
-opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Remove tab hints
-opt.list = false
+vim.o.list = false
 
 vim.o.shell = "fish"
 vim.g.snacks_animate = false
+
+vim.o.winborder = "rounded"
