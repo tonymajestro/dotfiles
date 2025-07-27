@@ -28,3 +28,6 @@ keybind = alt+p=goto_split:previous
 keybind = alt+shift+j=goto_split:bottom
 keybind = alt+shift+k=goto_split:top
 keybind = ctrl+space>d=close_window
+
+# dev config
+config-file = config.dev
