@@ -11,8 +11,10 @@ return {
       sources = {
         explorer = {
           follow_file = true,
+          follow = true,
           tree = true,
           auto_close = true,
+          hidden = true,
         },
       },
     },
