@@ -9,6 +9,7 @@ return {
     },
     explorer = {
       follow_file = true,
+      auto_close = true,
     },
   },
   keys = {
