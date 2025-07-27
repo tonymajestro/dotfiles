@@ -7,10 +7,13 @@ return {
     scroll = {
       enabled = false,
     },
+    explorer = {
+      follow_file = true,
+    },
   },
   keys = {
     {
-      "<leader>fe",
+      "<leader>e",
       "<cmd>lua Snacks.explorer()<cr>",
       desc = "Open snacks explorer",
     },
