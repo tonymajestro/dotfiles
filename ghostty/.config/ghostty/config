@@ -1,11 +1,9 @@
-command = /usr/bin/fish --login --interactive
-shell-integration = fish
 shell-integration-features = no-cursor,sudo,title
 
 theme = dark:catppuccin-macchiato,light:catppuccin-latte
 
 font-size = 12
-window-padding-x = 4
+window-padding-x = 2
 
 # disable ligatures
 font-feature = -calt
