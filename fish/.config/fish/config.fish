@@ -1,7 +1,6 @@
 if status is-interactive
     if test (uname) = Darwin
         set -x PATH /opt/homebrew/bin $PATH
-        set -x PATH /opt/homebrew/opt/node@20/bin $PATH
     end
 
     fish_config theme choose CatppuccinMacchiato
@@ -9,4 +8,6 @@ if status is-interactive
     fzf --fish | source
     zoxide init fish | source
     starship init fish | source
+
+    source ~/.dev.fish
 end
