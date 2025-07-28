@@ -14,6 +14,7 @@ palette = "catppuccin_macchiato"
 [directory]
 style = "blue"
 truncate_to_repo = false
+truncation_length = 0
 
 [character]
 success_symbol = "[❯](lavender2)"
