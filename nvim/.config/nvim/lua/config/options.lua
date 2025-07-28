@@ -7,7 +7,13 @@ vim.o.softtabstop = 0
 vim.o.expandtab = true
 vim.o.smarttab = true
 vim.o.smartindent = true
+
+vim.o.cursorline = true
+
+vim.o.ignorecase = true
 vim.o.smartcase = true
+
+vim.o.breakindent = true
 
 vim.o.clipboard = "unnamedplus"
 
@@ -21,6 +27,8 @@ vim.o.undofile = true
 vim.o.scrolloff = 10
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+vim.o.showmode = false
 
 vim.diagnostic.config({
   virtual_text = true

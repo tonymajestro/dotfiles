@@ -1,11 +1,13 @@
 return {
-  {
-    "folke/which-key.nvim",
+ {
+    'folke/lazydev.nvim',
+    ft = 'lua',
     opts = {
-      preset = "helix",
-      sort = {"alphanum"}
-    }
+      library = {
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
   },
+  'NMAC427/guess-indent.nvim',
   "neovim/nvim-lspconfig",
-  { "folke/lazydev.nvim", ft = "lua", opts = {} },
 }
