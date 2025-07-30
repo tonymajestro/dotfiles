@@ -3,6 +3,8 @@ shell-integration-features = no-cursor,sudo,title
 
 theme = dark:catppuccin-macchiato,light:catppuccin-latte
 
+copy-on-select = clipboard
+
 font-size = 12
 window-padding-x = 2
 
