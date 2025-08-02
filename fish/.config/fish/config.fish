@@ -3,11 +3,15 @@ if status is-interactive
         set -x PATH /opt/homebrew/bin $PATH
     end
 
+    set -l dev_config $HOME/.config/fish/dev/config.dev.fish
+    if test -f "$dev_config"
+        source "$dev_config"
+    end
+
     fish_config theme choose CatppuccinMacchiato
 
     fzf --fish | source
     zoxide init fish | source
     starship init fish | source
 
-    source ~/.dev.fish
 end
