@@ -6,7 +6,7 @@ theme = dark:catppuccin-macchiato,light:catppuccin-latte
 copy-on-select = clipboard
 
 font-size = 12
-window-padding-x = 2
+window-padding-x = 6
 
 # disable ligatures
 font-feature = -calt
@@ -31,4 +31,4 @@ keybind = alt+shift+k=goto_split:top
 keybind = ctrl+space>d=close_window
 
 # dev config
-config-file = config.dev
+config-file = ?config.dev
