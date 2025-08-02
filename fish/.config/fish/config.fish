@@ -5,7 +5,9 @@ if status is-interactive
 
     set -l dev_dir $HOME/.config/fish/dev
     if test -d "$dev_dir"
-        source "$dev_dir"/*.fish
+      for file in $dev_dir/*.fish
+        source $file
+      end
     end
 
     fish_config theme choose CatppuccinMacchiato
