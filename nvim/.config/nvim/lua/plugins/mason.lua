@@ -23,7 +23,7 @@ return {
       "yamlls"
     },
     automatic_enable = {
-      exclude = "jdtls"
+      exclude = { "jdtls" }
     }
   }
 }
