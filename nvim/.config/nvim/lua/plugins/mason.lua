@@ -1,12 +1,29 @@
 return {
-  "williamboman/mason.nvim",
-  enabed = false,
+  "mason-org/mason-lspconfig.nvim",
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
+  },
   opts = {
     ensure_installed = {
-      "bash-language-server",
+      "lua_ls",
+      "vimls",
+      "fish_lsp",
+      "bashls",
+      "ts_ls",
+      "jdtls",
+      "cssls",
+      "ruby_lsp",
+      "eslint",
       "gopls",
-      "typescript-language-server",
-      "fish-lsp",
+      "html",
+      "just",
+      "pyright",
+      "ruff",
+      "yamlls"
     },
-  },
+    automatic_enable = {
+      exclude = "jdtls"
+    }
+  }
 }

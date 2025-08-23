@@ -1,28 +1,15 @@
 return {
-  "tpope/vim-repeat",
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin-macchiato",
-    },
-  },
-  {
-    "tonymajestro/smart-scrolloff.nvim",
-    opts = {
-      scrolloff_percentage = 0.27,
-    },
-  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {},
   },
   {
-    "akinsho/bufferline.nvim",
+    "folke/which-key.nvim",
+    event = "VeryLazy",
     opts = {
-      options = {
-        always_show_bufferline = true,
-      },
+      delay = 500,
+      preset = "helix"
     },
   },
 }

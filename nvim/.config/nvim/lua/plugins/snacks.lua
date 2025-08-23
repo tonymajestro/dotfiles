@@ -1,13 +1,10 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    lazygit = {
-      configure = false,
-    },
-    scroll = {
-      enabled = false,
-    },
+    bigfile = { enabled = true },
+    explorer = { enabled = true },
     picker = {
+      enabled = true,
       win = {
         input = {
           keys = {
@@ -37,7 +34,6 @@ return {
                 Actions.update(picker, { refresh = true })
               end
 
-              ---@param node snacks.picker.explorer.Node
               local function toggle_recursive(node)
                 Tree:toggle(node.path)
                 refresh()
@@ -67,9 +63,9 @@ return {
             end,
           },
           layout = {
-            layout = {
-              width = 80,
-            }
+            -- layout = {
+            --   width = 80,
+            -- }
           },
           win = {
             list = {
@@ -85,29 +81,67 @@ return {
   keys = {
     {
       "<leader>e",
-      function()
-        Snacks.explorer()
-      end,
+      function() Snacks.explorer() end,
       desc = "Explorer Snacks (root dir)",
     },
     {
       "<leader><space>",
       function()
-        Snacks.picker.smart({ multi = { "files" }})
+        local select = {
+          preview = false,
+          layout = {
+            backdrop = false,
+            width = 0.5,
+            min_width = 80,
+            height = 0.4,
+            min_height = 10,
+            box = "vertical",
+            border = "rounded",
+            title = " Files ",
+            title_pos = "center",
+            { win = "input",   height = 1,          border = "bottom" },
+            { win = "list",    border = "none" },
+            { win = "preview", title = "{preview}", height = 0.4,     border = "top" },
+          },
+        }
+        Snacks.picker.smart({ multi = { "files" }, layout = select })
       end,
       desc = "Find Files (cwd)",
     },
     {
       "<leader>ff",
-      LazyVim.pick("files", { root = false, hidden = true, ignored = true }),
+      function() Snacks.picker.files() end,
       desc = "Find Files (cwd)",
     },
     {
-      "<leader>fF",
-      LazyVim.pick("files", { hidden = true, ignored = true }),
-      desc = "Find Files (Root Dir)",
+      "<leader>sg",
+      function() Snacks.picker.grep() end,
+      desc = "Grep"
     },
-    { "<leader>sg", LazyVim.pick("live_grep"), desc = "Find Files (Root Dir)" },
-    { "<leader>/", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
+    {
+      "<leader>/",
+      function() Snacks.picker.lines() end,
+      desc = "Buffer Lines"
+    },
+    {
+      "<leader>sh",
+      function() Snacks.picker.help() end,
+      desc = "Help Pages"
+    },
+    {
+      "<leader>ss",
+      function() Snacks.picker.lsp_symbols() end,
+      desc = "LSP Symbols",
+    },
+    {
+      "<leader>sk",
+      function() Snacks.picker.lsp_symbols() end,
+      desc = "LSP Symbols"
+    },
+    {
+      "<leader>sk",
+      function() Snacks.picker.keymaps() end,
+      desc = "Keymaps"
+    },
   },
 }

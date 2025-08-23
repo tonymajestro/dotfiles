@@ -1,65 +1,59 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+-- cursor movement
+vim.keymap.set("n", "<C-j>", "4j", { desc = "Move cursor down 4 lines in normal mode" })
+vim.keymap.set("n", "<C-k>", "4k", { desc = "Move cursor up 4 lines in normal mode" })
+vim.keymap.set("v", "<C-j>", "4j", { desc = "Move cursor up 4 lines in visual mode" })
+vim.keymap.set("v", "<C-k>", "4k", { desc = "Move cursor up 4 lines in visual mode" })
+vim.keymap.set("i", "<C-a>", "<Home>", { desc = "Move cursor to beginning of line in insert mode " })
+vim.keymap.set("i", "<C-e>", "<End>", { desc = "Move cursor to end of line in insert mode" })
 
-local map = vim.keymap.set
+-- map kj to escape
+vim.keymap.set("i", "kj", "<esc>")
 
--- Cursor movement
-map("n", "<C-j>", "4j", { desc = "Move cursor down 4 lines in normal mode" })
-map("n", "<C-k>", "4k", { desc = "Move cursor up 4 lines in normal mode" })
-map("v", "<C-j>", "4j", { desc = "Move cursor up 4 lines in visual mode" })
-map("v", "<C-k>", "4k", { desc = "Move cursor up 4 lines in visual mode" })
-map("i", "<C-a>", "<Home>", { desc = "Move cursor to beginning of line in insert mode " })
-map("i", "<C-e>", "<End>", { desc = "Move cursor to end of line in insert mode" })
+-- visual repeat
+vim.keymap.set("v", ".", ":normal .<cr>")
 
--- Navigate tabs
-map("n", "<C-h>", "<C-w><C-h>")
-map("n", "<C-l>", "<C-w><C-l>")
+-- ignore q:
+vim.keymap.set("n", "q:", "<NOP>", { noremap = true, silent = true, desc = "Command history" })
 
--- Map kj to escape
-vim.api.nvim_set_keymap("i", "kj", "<Esc>", {})
+-- visual line
+vim.keymap.set("n", "vv", "V")
 
--- Don't remain in visual mode when shifting text
-map("v", ">", ">", {})
-map("v", "<", "<", {})
+-- buffer and windows
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Write buffers" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit Neovim" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
--- Visual repeat
-map("v", ".", ":normal .<cr>")
+-- lsp
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References", nowait = true })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
+vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format code" })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
--- Open diagnostics in floating window
-map("n", "<leader>K", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open diagnostics in floating window" })
+-- oil
+vim.keymap.set("n", "<leader>o", "<cmd>Oil --float<cr>", { desc = "Open [O]il.nvim" })
 
--- Ignore q:
-map("n", "q:", "<nop>", { noremap = true })
+-- lazy
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Open [L]azy.nvim" })
 
--- Close buffers
-map("n", "<leader>bh", "<cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the left" })
-map("n", "<leader>bl", "<cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the right" })
+-- mason
+vim.keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open [M]ason.nvim" })
 
-map("n", "<leader>w", "<cmd>w<cr>", { nowait = true })
-map("n", "<leader>q", "<cmd>q<cr>", { nowait = true })
+-- clear highlight on escape
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>")
 
--- Visual line
-map("n", "vv", "V")
-
--- Open command
-map("n", "<leader>cc", "<Cmd>")
-
--- GPT stuff
-map("n", "<leader>a", "ggVG<cmd>'<,'>!aichat -c<cr>")
-map("v", "<leader>a", "<cmd>'<,'>!aichat -c<cr>")
-
--- Toggle syntax highlighting
-map("n", "<leader>uh", function()
-  local syntax_enabled = vim.g.syntax_on ~= nil
-
-  -- toggle nvim syntax highlighting
-  if syntax_enabled then
-    vim.api.nvim_command("syntax off")
-  else
-    vim.api.nvim_command("syntax on")
-  end
-
-  -- toggle treesitter syntax highlighting
-  vim.api.nvim_command("TSBufToggle highlight")
-end, { desc = "Toggle syntax highlighting" })
+-- toggle qflist
+vim.keymap.set("n", "<leader>ll",
+  function()
+    if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+      vim.cmd("cclose")
+    else
+      vim.cmd("copen")
+    end
+  end,
+  { desc = "Open diagnostic quickfix list" })
