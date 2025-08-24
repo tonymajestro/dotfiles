@@ -48,7 +48,7 @@ vim.keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open [M]ason.nvim" 
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>")
 
 -- toggle qflist
-vim.keymap.set("n", "<leader>ll",
+vim.keymap.set("n", "<leader>cl",
   function()
     if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
       vim.cmd("cclose")

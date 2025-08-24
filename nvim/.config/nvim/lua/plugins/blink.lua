@@ -3,13 +3,13 @@ return {
   dependencies = { 'rafamadriz/friendly-snippets' },
   version = '1.*',
   opts = {
-    keymap = { preset = 'enter' },
     appearance = {
       nerd_font_variant = 'mono'
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" }
+      default = { "lsp", "path", "snippets", "buffer" },
     },
+    cmdline = { enabled = false },
     completion = {
       accept = {
         -- experimental auto-brackets support
@@ -27,6 +27,15 @@ return {
         auto_show_delay_ms = 200,
       },
       ghost_text = { enabled = true },
+    },
+    keymap = {
+      preset = "enter",
+      ["<C-n>"] = {
+        "show",
+        function(cmp)
+          cmp.select_next({auto_insert = false})
+        end
+      }
     },
   },
   opts_extend = { "sources.default" }

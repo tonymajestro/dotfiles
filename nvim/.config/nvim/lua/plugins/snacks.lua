@@ -1,5 +1,6 @@
 return {
   "folke/snacks.nvim",
+  dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     bigfile = { enabled = true },
     explorer = { enabled = true },
@@ -61,11 +62,6 @@ return {
                 picker:action("confirm")
               end
             end,
-          },
-          layout = {
-            -- layout = {
-            --   width = 80,
-            -- }
           },
           win = {
             list = {

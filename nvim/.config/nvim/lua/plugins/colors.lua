@@ -10,7 +10,7 @@ return {
           dark = "macchiato",
         },
         no_italic = true,
-        integrations = { blink_cmp = true },
+        auto_integrations = true
       })
 
       vim.cmd([[colorscheme catppuccin]])
