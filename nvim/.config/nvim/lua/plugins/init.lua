@@ -11,5 +11,5 @@ return {
       delay = 500,
       preset = "helix"
     },
-  },
+  }
 }

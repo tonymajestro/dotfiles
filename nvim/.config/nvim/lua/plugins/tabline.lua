@@ -7,7 +7,6 @@ return {
         show_icons = false
       })
 
-
       local colors = require("catppuccin.palettes.macchiato")
       vim.api.nvim_set_hl(0, "MiniTablineCurrent", {
         fg = colors.text,

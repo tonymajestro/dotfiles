@@ -3,7 +3,10 @@ return {
   event = "VeryLazy",
   opts = {
     options = {
-      theme = "catppuccin"
+      section_separators = '',
+      component_separators = '',
+      theme = "catppuccin",
+      globalstatus = vim.o.laststatus == 2,
     },
     sections = {
       lualine_a = { "mode" },
