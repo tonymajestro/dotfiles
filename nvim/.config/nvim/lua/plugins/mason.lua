@@ -8,7 +8,6 @@ return {
     ensure_installed = {
       "lua_ls",
       "vimls",
-      "fish_lsp",
       "bashls",
       "ts_ls",
       "jdtls",

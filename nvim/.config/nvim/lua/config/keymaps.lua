@@ -32,6 +32,7 @@ vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" }
 vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References", nowait = true })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format code" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 
