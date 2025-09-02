@@ -36,7 +36,7 @@ return {
         show_icons = false
       })
 
-      local colors = require("catppuccin.palettes.macchiato")
+      local colors = require("catppuccin.palettes.mocha")
 
       -- current tab
       vim.api.nvim_set_hl(0, "MiniTablineCurrent", {

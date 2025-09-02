@@ -13,7 +13,6 @@ return {
       "jdtls",
       "cssls",
       "lemminx",
-      "ruby_lsp",
       "eslint",
       "gopls",
       "html",

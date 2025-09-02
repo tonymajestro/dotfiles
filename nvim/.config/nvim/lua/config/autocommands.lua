@@ -58,3 +58,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end)
   end,
 })
+
+-- close qflist when selecting a file
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true })
+  end,
+})
