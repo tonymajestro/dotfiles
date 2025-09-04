@@ -12,7 +12,6 @@ return {
       "ts_ls",
       "jdtls",
       "cssls",
-      "lemminx",
       "eslint",
       "gopls",
       "html",

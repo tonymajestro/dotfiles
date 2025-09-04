@@ -18,6 +18,7 @@ return {
         },
       },
       menu = {
+        auto_show = false, -- Disable automatic menu display
         draw = {
           treesitter = { "lsp" },
         },
@@ -26,14 +27,18 @@ return {
         auto_show = true,
         auto_show_delay_ms = 200,
       },
-      ghost_text = { enabled = true },
+      ghost_text = {
+        enabled = true,
+        show_without_menu = false,
+      },
     },
     keymap = {
       preset = "enter",
+      ["<Esc>"] = { 'hide', 'fallback' },
       ["<C-n>"] = {
         "show",
         function(cmp)
-          cmp.select_next({auto_insert = false})
+          cmp.select_next({ auto_insert = false })
         end
       }
     },
