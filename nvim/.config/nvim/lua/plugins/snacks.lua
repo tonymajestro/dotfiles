@@ -111,7 +111,13 @@ return {
     },
     {
       "<leader>sg",
-      function() Snacks.picker.grep() end,
+      function()
+        local layout = {
+          preview = { minimal = true },
+          preset = "ivy",
+        }
+        Snacks.picker.grep({ layout = layout })
+      end,
       desc = "Grep"
     },
     {
