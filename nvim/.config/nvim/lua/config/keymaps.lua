@@ -27,10 +27,10 @@ vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- lsp
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References", nowait = true })
+vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
+vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Goto Declaration" })
+vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
+vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "References", nowait = true })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format code" })
@@ -57,4 +57,4 @@ vim.keymap.set("n", "<leader>cl",
       vim.cmd("copen")
     end
   end,
-  { desc = "Open diagnostic quickfix list" })
+  { desc = "Open quickfix list" })
