@@ -3,7 +3,6 @@ return {
     'echasnovski/mini.ai',
     version = '*',
     config = function()
-
       -- https://github.com/LazyVim/LazyVim/blob/25abbf546d564dc484cf903804661ba12de45507/lua/lazyvim/util/mini.lua#L5
       local function ai_buffer(ai_type)
         local start_line, end_line = 1, vim.fn.line("$")
@@ -67,7 +66,11 @@ return {
         fg = colors.red,
         bg = colors.crust,
       })
-
     end
   },
+  {
+    'nvim-mini/mini.pick',
+    version = '*',
+    opts = {}
+  }
 }

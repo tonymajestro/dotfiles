@@ -37,6 +37,11 @@ vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 vim.keymap.set("n", "<leader>K", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open diagnostics in floating window" })
 
+-- mini.pick
+vim.keymap.set("n", "<leader><space>", "<cmd>Pick files<cr>", { desc = "Pick files"})
+vim.keymap.set("n", "<leader>sh", "<cmd>Pick help<cr>", { desc = "Search help"})
+vim.keymap.set("n", "<leader>sg", "<cmd>Pick grep_live<cr>", { desc = "Grep live"})
+vim.keymap.set("n", "<leader>pr", "<cmd>Pick resume<cr>", { desc = "Pick resume"})
 
 -- oil
 vim.keymap.set("n", "<leader>o", "<cmd>Oil --float<cr>", { desc = "Open [O]il.nvim" })
