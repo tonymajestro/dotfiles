@@ -18,7 +18,7 @@ return {
         },
       },
       menu = {
-        auto_show = false, -- Disable automatic menu display
+        auto_show = true,
         draw = {
           treesitter = { "lsp" },
         },
@@ -34,7 +34,6 @@ return {
     },
     keymap = {
       preset = "enter",
-      ["<Esc>"] = { 'hide', 'fallback' },
       ["<C-n>"] = {
         "show",
         function(cmp)

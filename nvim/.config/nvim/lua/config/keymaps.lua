@@ -26,22 +26,22 @@ vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buff
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
+-- marks
+vim.keymap.set("n", "<leader>1", "'1", { desc = "Go to first mark" })
+vim.keymap.set("n", "<leader>2", "'2", { desc = "Go to second mark" })
+vim.keymap.set("n", "<leader>3", "'3", { desc = "Go to third mark" })
+vim.keymap.set("n", "<leader>4", "'4", { desc = "Go to fourth mark" })
+vim.keymap.set("n", "<leader>5", "'5", { desc = "Go to fifth mark" })
+
 -- lsp
-vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
-vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Goto Declaration" })
-vim.keymap.set("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
-vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { desc = "References", nowait = true })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" })
 vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, { desc = "Format code" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-vim.keymap.set("n", "<leader>K", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open diagnostics in floating window" })
 
--- mini.pick
-vim.keymap.set("n", "<leader><space>", "<cmd>Pick files<cr>", { desc = "Pick files"})
-vim.keymap.set("n", "<leader>sh", "<cmd>Pick help<cr>", { desc = "Search help"})
-vim.keymap.set("n", "<leader>sg", "<cmd>Pick grep_live<cr>", { desc = "Grep live"})
-vim.keymap.set("n", "<leader>pr", "<cmd>Pick resume<cr>", { desc = "Pick resume"})
+-- diagnostics
+vim.keymap.set("n", "<leader>K", function() vim.diagnostic.open_float() end, { desc = "Open diagnostics for line in floating window" })
+vim.keymap.set('n', '<leader>dt', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, { desc = 'Toggle diagnostics' })
 
 -- oil
 vim.keymap.set("n", "<leader>o", "<cmd>Oil --float<cr>", { desc = "Open [O]il.nvim" })

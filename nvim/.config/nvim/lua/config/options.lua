@@ -35,7 +35,7 @@ vim.o.splitbelow = true
 vim.diagnostic.config({ virtual_text = true })
 
 -- misc
-vim.o.jumpoptions = "view"
+vim.o.jumpoptions = "stack"
 vim.o.scrolloff = math.floor(vim.o.lines * 0.25)
 vim.o.grepprg = "rg --vimgrep"
 vim.o.winborder = "rounded"

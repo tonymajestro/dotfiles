@@ -9,7 +9,7 @@ $line_break\
 $character"""
 right_format = """$cmd_duration"""
 
-palette = "catppuccin_mocha"
+palette = "catppuccin_macchiato"
 
 [directory]
 style = "blue"
@@ -17,7 +17,7 @@ truncate_to_repo = false
 truncation_length = 0
 
 [character]
-success_symbol = "[❯](lavender2)"
+success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](peach)"
 vimcmd_visual_symbol = "[❮](peach)"

@@ -7,7 +7,7 @@ return {
       require("catppuccin").setup({
         background = {
           light = "latte",
-          dark = "mocha",
+          dark = "macchiato",
         },
         no_italic = true,
         auto_integrations = true
