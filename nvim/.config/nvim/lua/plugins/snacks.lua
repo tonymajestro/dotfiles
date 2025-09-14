@@ -2,8 +2,23 @@ return {
   "folke/snacks.nvim",
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
+    styles = {
+      input = {
+        relative = "cursor",
+        width = 40,
+        row = -3,
+        col = -1,
+        keys = {
+          i_esc = { "<esc>", { "cancel" }, mode = "i", expr = true },
+        }
+      }
+    },
     bigfile = { enabled = true },
     explorer = { enabled = true },
+    input = {
+      enabled = true,
+      relative = "cursor"
+    },
     picker = {
       enabled = true,
       win = {
@@ -77,7 +92,7 @@ return {
     scratch = { enabled = true },
   },
   keys = {
-    { "<leader>e", function() Snacks.explorer() end, desc = "Explorer Snacks (root dir)", },
+    { "<leader>e",  function() Snacks.explorer() end,     desc = "Explorer Snacks (root dir)", },
     {
       "<leader><space>",
       function()
@@ -114,17 +129,17 @@ return {
       end,
       desc = "Grep"
     },
-    { "<leader>/", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-    { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", },
-    { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files (cwd)", },
-    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<C-/>", function() Snacks.terminal.toggle() end, desc = "Toggle Scratch Terminal", mode = { "n", "t" }},
-    { "<C-/>", function() Snacks.terminal.toggle() end, desc = "Toggle Scratch Terminal" },
-    { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
-    { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
-    { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
-    { "gr", function() Snacks.picker.lsp_references() end, desc = "Goto References", nowait = true }
+    { "<leader>/",  function() Snacks.picker.lines() end,               desc = "Buffer Lines" },
+    { "<leader>sh", function() Snacks.picker.help() end,                desc = "Help Pages" },
+    { "<leader>ss", function() Snacks.picker.lsp_symbols() end,         desc = "LSP Symbols", },
+    { "<leader>sk", function() Snacks.picker.keymaps() end,             desc = "Keymaps" },
+    { "<leader>ff", function() Snacks.picker.files() end,               desc = "Find Files (cwd)", },
+    { "<leader>.",  function() Snacks.scratch() end,                    desc = "Toggle Scratch Buffer" },
+    { "<C-/>",      function() Snacks.terminal.toggle() end,            desc = "Toggle Scratch Terminal", mode = { "n", "t" } },
+    { "<C-/>",      function() Snacks.terminal.toggle() end,            desc = "Toggle Scratch Terminal" },
+    { "gd",         function() Snacks.picker.lsp_definitions() end,     desc = "Goto Definition" },
+    { "gD",         function() Snacks.picker.lsp_declarations() end,    desc = "Goto Declaration" },
+    { "gI",         function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+    { "gr",         function() Snacks.picker.lsp_references() end,      desc = "Goto References",         nowait = true }
   },
 }
