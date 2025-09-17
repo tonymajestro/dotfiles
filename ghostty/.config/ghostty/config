@@ -1,5 +1,5 @@
 shell-integration = fish
-shell-integration-features = no-cursor,sudo,title
+shell-integration-features = no-cursor,sudo,title,ssh-env,ssh-terminfo
 
 theme = dark:catppuccin-macchiato.conf,light:catppuccin-latte.conf
 
