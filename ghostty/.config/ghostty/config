@@ -1,11 +1,11 @@
 shell-integration = fish
 shell-integration-features = no-cursor,sudo,title
 
-theme = dark:catppuccin-macchiato,light:catppuccin-latte
+theme = dark:catppuccin-macchiato.conf,light:catppuccin-latte.conf
 
 copy-on-select = clipboard
 
-font-size = 12
+font-size = 14
 window-padding-x = 6
 
 # disable ligatures
