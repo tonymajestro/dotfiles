@@ -28,7 +28,7 @@ keybind = ctrl+shift+l=goto_split:right
 keybind = ctrl+shift+h=goto_split:left
 keybind = ctrl+shift+j=goto_split:bottom
 keybind = ctrl+shift+k=goto_split:top
-keybind = ctrl+space>d=close_window
+keybind = ctrl+space>d=close_tab
 
 # dev config
 config-file = ?config.dev
