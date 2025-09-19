@@ -11,7 +11,7 @@ return {
         keys = {
           i_esc = { "<esc>", { "cancel" }, mode = "i", expr = true },
         }
-      }
+      },
     },
     bigfile = { enabled = true },
     explorer = { enabled = true },
@@ -118,17 +118,8 @@ return {
       desc = "Find Files (cwd)",
     },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files (cwd)", },
-    {
-      "<leader>sg",
-      function()
-        local layout = {
-          preview = { minimal = true },
-          preset = "ivy",
-        }
-        Snacks.picker.grep({ layout = layout })
-      end,
-      desc = "Grep"
-    },
+    { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Grep" },
     { "<leader>/",  function() Snacks.picker.lines() end,               desc = "Buffer Lines" },
     { "<leader>sh", function() Snacks.picker.help() end,                desc = "Help Pages" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end,         desc = "LSP Symbols", },
