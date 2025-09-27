@@ -124,6 +124,7 @@ return {
     { "<leader>sh", function() Snacks.picker.help() end,                desc = "Help Pages" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end,         desc = "LSP Symbols", },
     { "<leader>sk", function() Snacks.picker.keymaps() end,             desc = "Keymaps" },
+    { "<leader>sr", function() require("snacks.picker").resume() end,   desc = "Resume snacks picker" },
     { "<leader>ff", function() Snacks.picker.files() end,               desc = "Find Files (cwd)", },
     { "<leader>.",  function() Snacks.scratch() end,                    desc = "Toggle Scratch Buffer" },
     { "<C-/>",      function() Snacks.terminal.toggle() end,            desc = "Toggle Scratch Terminal", mode = { "n", "t" } },
